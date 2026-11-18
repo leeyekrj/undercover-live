@@ -214,7 +214,17 @@ namespace UndercoverLive
             foreach (Transform c in chatRoot) Destroy(c.gameObject);
             chatRows.Clear();
             var lines = new List<string>();
-            foreach (var l in UIStrings.CaughtChatFallback) lines.Add(l);
+            // 실제 방송 채팅 마지막 줄들(StreamFeed.RecentLines, "닉네임: 내용") — 없으면 대체 문구
+            var feed = StreamFeed.Instance;
+            if (feed != null && feed.RecentLines != null && feed.RecentLines.Count > 0)
+            {
+                foreach (var l in feed.RecentLines)
+                {
+                    int k = l.IndexOf(": ");
+                    lines.Add(k > 0 ? l.Substring(0, k) + "|" + l.Substring(k + 2) : l);
+                }
+            }
+            else foreach (var l in UIStrings.CaughtChatFallback) lines.Add(l);
             lines.Add(UIStrings.SystemNick + "|" + reason);
             lines.Add(UIStrings.SystemNick + "|" + UIStrings.CaughtSystemLine);
             const float rowH = 36f;
