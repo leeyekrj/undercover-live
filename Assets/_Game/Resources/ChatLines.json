@@ -1,0 +1,1919 @@
+{
+ "nicknames": [
+  "버블티덕후",
+  "눈팅만3년",
+  "소리없는아우성",
+  "호기심천국",
+  "익명의관찰자",
+  "오늘도야근",
+  "구독자0명",
+  "새벽반총무",
+  "국밥부장관",
+  "팩트체크중",
+  "심장쫄깃해",
+  "잠입전문가",
+  "고양이발바닥",
+  "편의점폐기왕",
+  "배터리3퍼",
+  "지나가던시민",
+  "클립따는기계",
+  "야식참는중",
+  "공포겜못봄",
+  "팩트만말함",
+  "모자이크장인",
+  "수면부족러",
+  "제보하러왔음",
+  "집구석탐정단",
+  "말랑카우중독",
+  "방구석평론가",
+  "실시간정주행",
+  "숨참고보는중",
+  "알림켜놨다",
+  "카메라감독님",
+  "초점잡아라",
+  "주작감별사99",
+  "과몰입방지위원회",
+  "김치찌개장인",
+  "퇴근길지하철",
+  "이어폰한쪽실종",
+  "무음모드필수",
+  "팝콘각오픈",
+  "고구마백개",
+  "사이다한사발",
+  "단톡방좌표러",
+  "민초단대장장이",
+  "내일출근망함",
+  "커피세잔째",
+  "손에땀난다",
+  "뒤에누구야",
+  "와이어찾기장인",
+  "안경잽이탐정",
+  "막차놓친사람",
+  "치킨시킬까말까",
+  "보도국막내PD",
+  "앵글장인77",
+  "흔들림보정좀",
+  "줌당겨봐요",
+  "눈꺼풀아님",
+  "유리눈관찰자",
+  "소등41일전",
+  "극장맨뒷자리",
+  "공기계제출완료",
+  "생방사수단",
+  "밤샘워치독",
+  "쫄보시청자1호",
+  "형뒤에관리자",
+  "녹화버튼눌렀지",
+  "특종사냥꾼"
+ ],
+ "lines": [
+  {
+   "situation": "idle_small",
+   "kind": "chat",
+   "text": "출첵 박고 간다",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_small",
+   "kind": "question",
+   "text": "오늘 어디 들어간 거임?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_small",
+   "kind": "reply",
+   "text": "겹눈의 집이라는데?",
+   "amount": 0,
+   "reply_to": "오늘 어디 들어간 거임?"
+  },
+  {
+   "situation": "idle_small",
+   "kind": "chat",
+   "text": "와 진짜 잠입했네 ㅁㅊ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_small",
+   "kind": "chat",
+   "text": "시청자 아직 아담하네 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_small",
+   "kind": "chat",
+   "text": "마이크 소리 살짝 작게 해줘",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_small",
+   "kind": "hater",
+   "text": "에이 설마 진짜겠어 세트장 아님?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_small",
+   "kind": "reply",
+   "text": "세트장을 저렇게 왜 만듦 ㅋㅋ",
+   "amount": 0,
+   "reply_to": "에이 설마 진짜겠어 세트장 아님?"
+  },
+  {
+   "situation": "idle_small",
+   "kind": "chat",
+   "text": "나만 심장 쫄리냐 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_small",
+   "kind": "chat",
+   "text": "형 무리하지 말고 이상하면 바로 나와",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_small",
+   "kind": "chat",
+   "text": "알림 뜨자마자 헐레벌떡 달려옴!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_small",
+   "kind": "chat",
+   "text": "공기부터 이미 음산한데 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_mid",
+   "kind": "chat",
+   "text": "사람 슬슬 몰린다 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_mid",
+   "kind": "chat",
+   "text": "추천 타고 왔는데 여기 실화냐",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_mid",
+   "kind": "question",
+   "text": "입구에서 폰 검사 안 했어?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_mid",
+   "kind": "reply",
+   "text": "아까 공기계 내고 몰래 들고 들어감",
+   "amount": 0,
+   "reply_to": "입구에서 폰 검사 안 했어?"
+  },
+  {
+   "situation": "idle_mid",
+   "kind": "chat",
+   "text": "단톡방에 좌표 찍혔다 ㅋㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_mid",
+   "kind": "chat",
+   "text": "소문나면 위험한데 조심해 형",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_mid",
+   "kind": "chat",
+   "text": "숨소리까지 다 들려 헉헉대지 마 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_mid",
+   "kind": "hater",
+   "text": "어차피 별거 안 나오고 끝날 듯",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_mid",
+   "kind": "chat",
+   "text": "신도인 척 앉아 있는 거 웃기네 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_mid",
+   "kind": "chat",
+   "text": "채팅창 점점 빨라진다!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_mid",
+   "kind": "chat",
+   "text": "주변에 눈꺼풀들 폰 안 보나 잘 봐",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_mid",
+   "kind": "chat",
+   "text": "오늘 레전드 회차 각 잡혔다",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_big",
+   "kind": "chat",
+   "text": "만 명 뚫었다 ㅁㅊ!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_big",
+   "kind": "chat",
+   "text": "채팅 속도가 눈으로 안 따라가짐 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_big",
+   "kind": "chat",
+   "text": "실검 오르겠는데 이러다 걸리는 거 아냐?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_big",
+   "kind": "reply",
+   "text": "저 안에도 이 방송 보는 사람 있을 듯 ㄷㄷ",
+   "amount": 0,
+   "reply_to": "실검 오르겠는데 이러다 걸리는 거 아냐?"
+  },
+  {
+   "situation": "idle_big",
+   "kind": "chat",
+   "text": "뉴스 제보각 제대로 섰다!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_big",
+   "kind": "question",
+   "text": "방금 들어왔는데 지금 무슨 상황임?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_big",
+   "kind": "reply",
+   "text": "겹눈의 집 잠입 생중계 중 ㅋㅋ",
+   "amount": 0,
+   "reply_to": "방금 들어왔는데 지금 무슨 상황임?"
+  },
+  {
+   "situation": "idle_big",
+   "kind": "chat",
+   "text": "역대급 동접 찍었네 ㄷㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_big",
+   "kind": "chat",
+   "text": "제발 무사히만 찍고 나오자 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_big",
+   "kind": "hater",
+   "text": "이 인원이면 이미 관리자한테 제보 갔음 ㅅㄱ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_big",
+   "kind": "chat",
+   "text": "화력 미쳤다 클립 따는 애들 대기해라",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "idle_big",
+   "kind": "chat",
+   "text": "형 절대 들키지 마 온 동네가 다 보고 있어!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_entry",
+   "kind": "chat",
+   "text": "자리 잘 잡았네 딱 가운데다",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_entry",
+   "kind": "chat",
+   "text": "옆자리 눈꺼풀이 말 걸면 어떡함 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_entry",
+   "kind": "reply",
+   "text": "그냥 고개만 끄덕여야지 별수 있나",
+   "amount": 0,
+   "reply_to": "옆자리 눈꺼풀이 말 걸면 어떡함 ㅋㅋ"
+  },
+  {
+   "situation": "phase_entry",
+   "kind": "chat",
+   "text": "의자 삐걱거리는 소리도 조심해 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_entry",
+   "kind": "question",
+   "text": "저기 옛날 영화관 개조한 데인가?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_entry",
+   "kind": "chat",
+   "text": "어두컴컴해서 몰래 찍긴 좋겠다",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_entry",
+   "kind": "chat",
+   "text": "아직 시작 전이라 다들 조용하네",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_entry",
+   "kind": "chat",
+   "text": "일단 폰 내려놓고 자연스럽게 앉아 있어!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_sermon",
+   "kind": "chat",
+   "text": "눈동자님 말투 왜 저래 소름 돋아 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_sermon",
+   "kind": "chat",
+   "text": "바깥 눈은 곧 먼대 ㅋㅋㅋ 협박 수준인데?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_sermon",
+   "kind": "chat",
+   "text": "차가운 유리 눈이 폰 말하는 거지??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_sermon",
+   "kind": "reply",
+   "text": "ㅇㅇ 입구에 다 맡겼냐고 떠보잖아 ㄷㄷ",
+   "amount": 0,
+   "reply_to": "차가운 유리 눈이 폰 말하는 거지??"
+  },
+  {
+   "situation": "phase_sermon",
+   "kind": "chat",
+   "text": "통장 숫자 보지 말라는 건 돈 다 내놓으란 거네",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_sermon",
+   "kind": "chat",
+   "text": "이 발언 그대로 녹음 따놔라 증거 된다!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_sermon",
+   "kind": "question",
+   "text": "저런 말 듣고도 다들 고개 끄덕이는 거임?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_sermon",
+   "kind": "chat",
+   "text": "내 눈을 덮고 눈동자님만 본다 ㄷㄷ 세뇌 무섭네",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_sermon",
+   "kind": "hater",
+   "text": "대본 읽는 티 너무 나는데 연기 좀 살살 해라",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_sermon",
+   "kind": "chat",
+   "text": "목소리 깔리는 거 봐 영화 한 장면 같네 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_blindfold",
+   "kind": "chat",
+   "text": "어 다들 하얀 천으로 눈 가린다!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_blindfold",
+   "kind": "chat",
+   "text": "와 지금이 찍을 타이밍 아님??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_blindfold",
+   "kind": "reply",
+   "text": "잠깐만 눈동자님이랑 관리자는 눈 뜨고 있잖아!!",
+   "amount": 0,
+   "reply_to": "와 지금이 찍을 타이밍 아님??"
+  },
+  {
+   "situation": "phase_blindfold",
+   "kind": "chat",
+   "text": "눈꺼풀들 진짜 한 명도 안 빼고 다 덮네 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_blindfold",
+   "kind": "chat",
+   "text": "형만 눈 안 가리면 바로 티 나는 거 아니야?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_blindfold",
+   "kind": "question",
+   "text": "눈을 감아야 보인다는 게 뭔 논리냐 도대체?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_blindfold",
+   "kind": "chat",
+   "text": "집단으로 하얀 천 두른 거 기괴하다 진짜 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_blindfold",
+   "kind": "chat",
+   "text": "무대 시선 피해 가면서 짧게 끊어 찍어!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_miracle",
+   "kind": "chat",
+   "text": "헐 저 사람 진짜 허공에 떴는데??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_miracle",
+   "kind": "reply",
+   "text": "폰 화면으로 자세히 봐봐 뭐 달렸을걸!!",
+   "amount": 0,
+   "reply_to": "헐 저 사람 진짜 허공에 떴는데??"
+  },
+  {
+   "situation": "phase_miracle",
+   "kind": "chat",
+   "text": "조명 뽕 넣어서 눈속임하는 거네 ㅋㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_miracle",
+   "kind": "chat",
+   "text": "눈꺼풀들은 천 덮고 있어서 아무것도 모름 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_miracle",
+   "kind": "chat",
+   "text": "보이십니까 이러는데 다 눈 가렸잖아 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_miracle",
+   "kind": "chat",
+   "text": "지금 무조건 정조준으로 당겨 찍어야 한다!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_miracle",
+   "kind": "question",
+   "text": "맨눈으로 보면 진짜 뜨는 것처럼 보여?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_miracle",
+   "kind": "hater",
+   "text": "학예회 수준 연출인데 저걸 속네 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_miracle",
+   "kind": "chat",
+   "text": "오늘 방송 하이라이트 나왔다 놓치지 마!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_closing",
+   "kind": "chat",
+   "text": "극장 문 나가지 말라는데 감금 아님?? ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_closing",
+   "kind": "chat",
+   "text": "끝났다 얼른 섞여서 빠져나오자 형!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_closing",
+   "kind": "chat",
+   "text": "소등되는 날까지 못 나간대 소름 쫙 돋네 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_closing",
+   "kind": "question",
+   "text": "오늘 건진 영상들 바로 올릴 수 있어?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_closing",
+   "kind": "chat",
+   "text": "입구에서 폰 찾을 때까지 절대 방심하지 마!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "phase_closing",
+   "kind": "chat",
+   "text": "고생했다 진짜 심장 쫄깃해서 혼났네 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_leader",
+   "kind": "chat",
+   "text": "눈동자님 얼굴 정면으로 잡혔다!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_leader",
+   "kind": "chat",
+   "text": "눈빛 봐 진짜 사람 홀리는 관상이네 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_leader",
+   "kind": "chat",
+   "text": "초점 상자 딱 붙었어 그대로 유지해!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_leader",
+   "kind": "question",
+   "text": "저 흰 옷 입은 사람이 눈동자님 맞지?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_leader",
+   "kind": "reply",
+   "text": "ㅇㅇ 무대 한가운데 앉아 있는 교주임",
+   "amount": 0,
+   "reply_to": "저 흰 옷 입은 사람이 눈동자님 맞지?"
+  },
+  {
+   "situation": "framing_leader",
+   "kind": "chat",
+   "text": "위에서 군중 스캔하는 거 같아 조심해 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_leader",
+   "kind": "chat",
+   "text": "각도 예술이다 썸네일 바로 뽑혔네 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_leader",
+   "kind": "chat",
+   "text": "절대 흔들지 말고 3초만 더 버텨!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_crowd",
+   "kind": "chat",
+   "text": "눈꺼풀들 미동도 없이 앉아 있는 거 봐 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_crowd",
+   "kind": "chat",
+   "text": "객석 꽉 찬 게 제일 무섭다 진짜 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_crowd",
+   "kind": "question",
+   "text": "저 사람들 다 자기 발로 찾아온 걸까?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_crowd",
+   "kind": "reply",
+   "text": "바깥 빛에 지쳤다면서 다들 홀린 듯 ㅠㅠ",
+   "amount": 0,
+   "reply_to": "저 사람들 다 자기 발로 찾아온 걸까?"
+  },
+  {
+   "situation": "framing_crowd",
+   "kind": "chat",
+   "text": "뒷모습만 봐도 기 빨린다 어우",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_crowd",
+   "kind": "chat",
+   "text": "다 같이 고개 끄덕이는 거 소름 돋네 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_crowd",
+   "kind": "chat",
+   "text": "앞줄 사람 뒤통수에 가려지니까 살짝만 올려 봐",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_crowd",
+   "kind": "hater",
+   "text": "알바 몇 명이나 쓴 거냐 제작비 꽤 들었네 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_banner",
+   "kind": "chat",
+   "text": "헐 폰으로 보니까 현수막 글씨가 달라!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_banner",
+   "kind": "reply",
+   "text": "눈을 가려야 모든 돈을 바친다 ㅋㅋㅋ 본심 나왔네",
+   "amount": 0,
+   "reply_to": "헐 폰으로 보니까 현수막 글씨가 달라!!"
+  },
+  {
+   "situation": "framing_banner",
+   "kind": "chat",
+   "text": "맨눈엔 평안이라더니 렌즈로 보니까 돈 얘기임 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_banner",
+   "kind": "question",
+   "text": "저거 특수 잉크 같은 걸로 써놓은 건가?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_banner",
+   "kind": "chat",
+   "text": "현수막 암호 해독 레전드다 꼭 찍어놔!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_banner",
+   "kind": "chat",
+   "text": "결국 목적은 돈이네 깔끔하게 증거 확보 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_portrait",
+   "kind": "chat",
+   "text": "초상화 눈이 따라오면서 쳐다보는 기분인데 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_portrait",
+   "kind": "chat",
+   "text": "무대 뒤에 걸린 사진 크기 보소 ㅁㅊ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_portrait",
+   "kind": "question",
+   "text": "초상화 액자 뒤에 뭐 숨겨져 있는 거 아님?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_portrait",
+   "kind": "chat",
+   "text": "자기 얼굴을 저만하게 걸어놓다니 자아도취 레전드 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_portrait",
+   "kind": "chat",
+   "text": "조명 받아서 사진이 더 기괴해 보여 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_portrait",
+   "kind": "chat",
+   "text": "초상화랑 실물이랑 똑같이 생겼네 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_countdown",
+   "kind": "chat",
+   "text": "바깥 소등까지 41일?? 저게 무슨 소리야 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_countdown",
+   "kind": "reply",
+   "text": "41일 뒤에 세상 불 꺼진다고 겁주는 거잖아 ㅠㅠ",
+   "amount": 0,
+   "reply_to": "바깥 소등까지 41일?? 저게 무슨 소리야 ㄷㄷ"
+  },
+  {
+   "situation": "framing_countdown",
+   "kind": "chat",
+   "text": "시한부 종말론 수법 그대로 쓰네 ㅁㅊ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_countdown",
+   "kind": "question",
+   "text": "41일 지나면 또 날짜 늘리는 거 아니야?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_countdown",
+   "kind": "chat",
+   "text": "왼쪽 벽에 붉은 글씨로 박아놓은 거 살벌하다",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_countdown",
+   "kind": "chat",
+   "text": "저 숫자 판 선명하게 줌 당겨서 찍어두자!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_donation_board",
+   "kind": "chat",
+   "text": "바깥 짐 비움 달성판 ㅋㅋㅋ 말을 참 예쁘게도 포장했네",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_donation_board",
+   "kind": "reply",
+   "text": "재산 다 털어 넣는 걸 짐 비움이라고 부르네 ㄷㄷ",
+   "amount": 0,
+   "reply_to": "바깥 짐 비움 달성판 ㅋㅋㅋ 말을 참 예쁘게도 포장했네"
+  },
+  {
+   "situation": "framing_donation_board",
+   "kind": "chat",
+   "text": "벌써 87퍼센트 채웠대 얼마나 뜯어낸 거야 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_donation_board",
+   "kind": "question",
+   "text": "100퍼센트 차면 무슨 일 벌어지는 거임?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_donation_board",
+   "kind": "chat",
+   "text": "오른쪽 벽에 대놓고 그래프 띄워놓은 거 봐라 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_donation_board",
+   "kind": "chat",
+   "text": "이게 제일 확실한 물증이다 꽉 채워 찍어!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_cctv",
+   "kind": "chat",
+   "text": "천장 구석에 빨간 점 깜빡거리는 거 뭐임??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_cctv",
+   "kind": "reply",
+   "text": "적외선 감시 카메라잖아 폰 카메라에만 보이는 거!!",
+   "amount": 0,
+   "reply_to": "천장 구석에 빨간 점 깜빡거리는 거 뭐임??"
+  },
+  {
+   "situation": "framing_cctv",
+   "kind": "chat",
+   "text": "와 맨눈엔 안 보이는데 폰 드니까 빨간 불 뜨네 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_cctv",
+   "kind": "chat",
+   "text": "눈꺼풀들 일거수일투족 다 감시하고 있었네 소름 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_cctv",
+   "kind": "question",
+   "text": "저 카메라 각도에 형 자리도 들어가는 거 아니야?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_cctv",
+   "kind": "chat",
+   "text": "카메라 렌즈 정면으로 노려보지 말고 빨리 내려!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_S",
+   "kind": "chat",
+   "text": "와 구도 완벽하다 S급 클립 땄다!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_S",
+   "kind": "chat",
+   "text": "미쳤다 이거 진짜임?? 소름 쫙 돋네 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_S",
+   "kind": "chat",
+   "text": "흔들림 하나 없이 정중앙에 박혔어 나이스!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_S",
+   "kind": "reply",
+   "text": "보도국에서 바로 사 갈 화질이다 ㅋㅋ",
+   "amount": 0,
+   "reply_to": "흔들림 하나 없이 정중앙에 박혔어 나이스!!"
+  },
+  {
+   "situation": "grade_S",
+   "kind": "chat",
+   "text": "카메라 장인이네 어떻게 저 각도에서 이걸 건지지?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_S",
+   "kind": "chat",
+   "text": "방금 장면으로 시청자 수 수직 상승 중!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_S",
+   "kind": "chat",
+   "text": "빼박 증거 확보 완료 오늘 잠입 대성공이다 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_S",
+   "kind": "chat",
+   "text": "전설의 레전드 짤 탄생했다 다들 저장해라!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_A",
+   "kind": "chat",
+   "text": "ㄷㄷㄷ 방금 거 꽤 선명하게 다 찍혔어!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_A",
+   "kind": "chat",
+   "text": "오 이 정도면 충분히 증거로 쓰겠는데?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_A",
+   "kind": "reply",
+   "text": "ㅇㅇ 누구 봐도 알아볼 만큼 깔끔하게 잡힘",
+   "amount": 0,
+   "reply_to": "오 이 정도면 충분히 증거로 쓰겠는데?"
+  },
+  {
+   "situation": "grade_A",
+   "kind": "chat",
+   "text": "좋았어 초록불 뜰 때까지 잘 버텼다!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_A",
+   "kind": "chat",
+   "text": "살짝 아쉽긴 해도 썸네일 감으론 충분해 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_A",
+   "kind": "question",
+   "text": "방금 찍힌 거 클립 자동 저장된 거 맞지?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_A",
+   "kind": "chat",
+   "text": "긴장됐을 텐데 손 떨림 없이 잘 담았네 굿굿",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_A",
+   "kind": "chat",
+   "text": "하나 건졌다 이제 욕심부리지 말고 폰 내려!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_B",
+   "kind": "chat",
+   "text": "뭐야 방금 뭐가 지나간 거임??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_B",
+   "kind": "reply",
+   "text": "찍히긴 했는데 구석에 살짝 걸쳤어 ㅠㅠ",
+   "amount": 0,
+   "reply_to": "뭐야 방금 뭐가 지나간 거임??"
+  },
+  {
+   "situation": "grade_B",
+   "kind": "chat",
+   "text": "알아볼 순 있는데 조금만 더 크게 잡지 아깝다",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_B",
+   "kind": "chat",
+   "text": "몰래 찍은 것 치고는 그나마 형체는 나왔네 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_B",
+   "kind": "question",
+   "text": "다시 한 번만 제대로 조준해서 찍으면 안 돼?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_B",
+   "kind": "chat",
+   "text": "절반쯤 가려졌지만 그래도 없는 것보단 낫다!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_B",
+   "kind": "hater",
+   "text": "이 정도 화질이면 우기면 그만이라 증거 안 됨 ㅅㄱ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_B",
+   "kind": "chat",
+   "text": "일단 킵해두고 기회 오면 한 번 더 노려보자",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_C",
+   "kind": "chat",
+   "text": "흔들려서 하나도 안 보임 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_C",
+   "kind": "chat",
+   "text": "아 너무 빨리 돌려서 잔상만 남았잖아 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_C",
+   "kind": "reply",
+   "text": "앞사람 뒤통수만 대문짝만하게 찍혔는데?",
+   "amount": 0,
+   "reply_to": "아 너무 빨리 돌려서 잔상만 남았잖아 ㅋㅋ"
+  },
+  {
+   "situation": "grade_C",
+   "kind": "chat",
+   "text": "글씨가 다 뭉개져서 뭔 내용인지 못 읽겠어 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_C",
+   "kind": "question",
+   "text": "지금 주머니나 가슴 높이에서 대충 찍은 거지?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_C",
+   "kind": "hater",
+   "text": "수전증 있냐 카메라 왜 이렇게 못 잡음 답답하네",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_C",
+   "kind": "chat",
+   "text": "초점 다 나갔다 이건 올려도 조회수 안 나와 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "grade_C",
+   "kind": "chat",
+   "text": "숨 좀 고르고 정조준으로 다시 찍어봐 형!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "shaky",
+   "kind": "chat",
+   "text": "어우 화면 너무 흔들려서 멀미 날 거 같아 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "shaky",
+   "kind": "chat",
+   "text": "손 왜 이렇게 떨어 진정해 형!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "shaky",
+   "kind": "reply",
+   "text": "심장 터질 거 같으니까 손이 덜덜 떨리지 ㄷㄷ",
+   "amount": 0,
+   "reply_to": "손 왜 이렇게 떨어 진정해 형!!"
+  },
+  {
+   "situation": "shaky",
+   "kind": "chat",
+   "text": "마우스 감도 좀 낮춰봐 초점이 안 잡히잖아!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "shaky",
+   "kind": "hater",
+   "text": "지진 났냐 화면 돌리는 속도 보소 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "shaky",
+   "kind": "chat",
+   "text": "가만히 멈춰야 확보 게이지가 차지 천천히 움직여!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "zoom_request",
+   "kind": "chat",
+   "text": "형 저거 안 보여 줌 좀 당겨봐!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "zoom_request",
+   "kind": "chat",
+   "text": "글씨가 너무 작아서 안 읽혀 확대해 줘 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "zoom_request",
+   "kind": "reply",
+   "text": "휠 올리면 줌 된다고!! 2배만 당겨봐!!",
+   "amount": 0,
+   "reply_to": "글씨가 너무 작아서 안 읽혀 확대해 줘 ㅠㅠ"
+  },
+  {
+   "situation": "zoom_request",
+   "kind": "question",
+   "text": "저 멀리 벽에 붙은 판 확대해서 볼 수 있어?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "zoom_request",
+   "kind": "chat",
+   "text": "1배율로는 판정 안 떠 줌 끝까지 땡겨!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "zoom_request",
+   "kind": "chat",
+   "text": "무대 뒤쪽이 궁금한데 줌으로 좀 당겨주라 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "battery_low",
+   "kind": "chat",
+   "text": "헐 배터리 퍼센트 봐 간당간당해 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "battery_low",
+   "kind": "reply",
+   "text": "정조준 계속 켜두니까 배터리가 녹네 녹아 ㅠㅠ",
+   "amount": 0,
+   "reply_to": "헐 배터리 퍼센트 봐 간당간당해 ㄷㄷ"
+  },
+  {
+   "situation": "battery_low",
+   "kind": "chat",
+   "text": "지금 안 찍을 땐 무조건 주머니에 넣어서 아껴!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "battery_low",
+   "kind": "question",
+   "text": "보조배터리 안 챙겨 왔어? 꺼지면 끝이잖아!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "battery_low",
+   "kind": "chat",
+   "text": "결정적 장면 남았는데 배터리 방전되면 레전드 참사임 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "battery_low",
+   "kind": "chat",
+   "text": "화면 밝기라도 줄여 제발 버텨줘 배터리야 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "signal_weak",
+   "kind": "chat",
+   "text": "어 라그 걸린다 화면 뚝뚝 끊기는데??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "signal_weak",
+   "kind": "reply",
+   "text": "극장 안이라 전파가 잘 안 터지나 봐 ㄷㄷ",
+   "amount": 0,
+   "reply_to": "어 라그 걸린다 화면 뚝뚝 끊기는데??"
+  },
+  {
+   "situation": "signal_weak",
+   "kind": "chat",
+   "text": "버퍼링 돌 때마다 심장 덜컥 내려앉는다 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "signal_weak",
+   "kind": "question",
+   "text": "혹시 겹눈의 집에서 전파 차단기 돌리는 거 아님?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "signal_weak",
+   "kind": "chat",
+   "text": "화질 갑자기 깍두기 됐다 제발 끊기지 마라!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "signal_weak",
+   "kind": "chat",
+   "text": "소리만 들리고 화면 멈췄어 살아있지 형??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_look",
+   "kind": "chat",
+   "text": "{where} {who} 쳐다봄!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_look",
+   "kind": "chat",
+   "text": "{where} {who} 봐요 봐요 폰 내려요!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_look",
+   "kind": "chat",
+   "text": "야 {where}에 {who} 고개 돌렸다 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_look",
+   "kind": "chat",
+   "text": "형 {where} 봐봐 {who} 눈 마주친 거 같은데??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_look",
+   "kind": "reply",
+   "text": "얼른 숨겨 {where} {who} 시선 고정됐어!!",
+   "amount": 0,
+   "reply_to": "형 {where} 봐봐 {who} 눈 마주친 거 같은데??"
+  },
+  {
+   "situation": "warn_look",
+   "kind": "chat",
+   "text": "{where} 조심!! {who} 이쪽 빤히 보고 있음 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_look",
+   "kind": "chat",
+   "text": "헉 {where}에 있는 {who} 눈치챈 듯 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_look",
+   "kind": "chat",
+   "text": "지금 {where} 방향 {who} 경계 중이다 내려!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_look",
+   "kind": "chat",
+   "text": "{where}에서 {who} 계속 째려보는데 안 보여??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_look",
+   "kind": "chat",
+   "text": "폰 불빛 보였나 봐 {where} {who} 돌아봄!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_look",
+   "kind": "chat",
+   "text": "위험해 {where} 쪽 {who} 수상하게 여긴다 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_look",
+   "kind": "chat",
+   "text": "{where} {who} 시야에 딱 걸렸어 당장 주머니에 넣어!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_staff_coming",
+   "kind": "chat",
+   "text": "야 통로로 관리자 걸어온다!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_staff_coming",
+   "kind": "reply",
+   "text": "발소리 가까워지는데 왜 아직도 폰 들고 있어 ㅠㅠ",
+   "amount": 0,
+   "reply_to": "야 통로로 관리자 걸어온다!!"
+  },
+  {
+   "situation": "warn_staff_coming",
+   "kind": "chat",
+   "text": "관리자 이쪽 줄로 방향 틀었다 빨리 숨겨!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_staff_coming",
+   "kind": "chat",
+   "text": "누가 수군거려서 관리자 불렀나 봐 ㄷㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_staff_coming",
+   "kind": "chat",
+   "text": "정조준 풀고 주머니에 넣어 바로 코앞이야!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_staff_coming",
+   "kind": "question",
+   "text": "저 사람 형 자리로 똑바로 오는 거 아니야??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_staff_coming",
+   "kind": "chat",
+   "text": "우클릭 눌러서 당장 집어넣어 몇 초 안 남았어!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "warn_staff_coming",
+   "kind": "chat",
+   "text": "숨도 쉬지 말고 앞만 보고 앉아 있어 제발 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "checkpoint",
+   "kind": "chat",
+   "text": "폰 좀 볼까요 나왔어 어떡해 ㄷㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "checkpoint",
+   "kind": "reply",
+   "text": "주머니에 넣었으면 시치미 떼고 버텨!!",
+   "amount": 0,
+   "reply_to": "폰 좀 볼까요 나왔어 어떡해 ㄷㄷㄷ"
+  },
+  {
+   "situation": "checkpoint",
+   "kind": "chat",
+   "text": "와 목소리 바로 위에서 들려 심장 멎는 줄 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "checkpoint",
+   "kind": "chat",
+   "text": "입구에 맡겼다고 해 절대 꺼내 주지 마!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "checkpoint",
+   "kind": "question",
+   "text": "방금 폰 화면 켜진 채로 들킨 건 아니지??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "checkpoint",
+   "kind": "chat",
+   "text": "손 떨지 말고 눈동자님만 보는 척해 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "checkpoint",
+   "kind": "chat",
+   "text": "제발 그냥 지나가라 제발제발 ㅠㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "checkpoint",
+   "kind": "hater",
+   "text": "응 딱 걸렸쥬 여기서 방송 엔딩이네 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "checkpoint_survived",
+   "kind": "chat",
+   "text": "휴 넘어갔다 살았다 ㅠㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "checkpoint_survived",
+   "kind": "reply",
+   "text": "일단은 갔는데 경계 엄청 올라갔을 듯 조심해!!",
+   "amount": 0,
+   "reply_to": "휴 넘어갔다 살았다 ㅠㅠㅠ"
+  },
+  {
+   "situation": "checkpoint_survived",
+   "kind": "chat",
+   "text": "타이밍 칼같이 숨겼네 십년감수했다 진짜 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "checkpoint_survived",
+   "kind": "chat",
+   "text": "나까지 숨 참고 있었네 아우 손에 땀 나 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "checkpoint_survived",
+   "kind": "chat",
+   "text": "다음에 또 걸리면 그땐 변명 안 통한다 사려!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "checkpoint_survived",
+   "kind": "chat",
+   "text": "연기력 무엇ㅋㅋ 진짜 눈꺼풀인 줄 알았나 봐",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "caught",
+   "kind": "chat",
+   "text": "아 폰 들킨 채로 딱 마주쳤다 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "caught",
+   "kind": "chat",
+   "text": "야 관리자 손 뻗는다 도망쳐 형!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "caught",
+   "kind": "reply",
+   "text": "어 화면 돌아간다 폰 뺏기는 소리 들림 ㄷㄷㄷ",
+   "amount": 0,
+   "reply_to": "야 관리자 손 뻗는다 도망쳐 형!!"
+  },
+  {
+   "situation": "caught",
+   "kind": "chat",
+   "text": "안 돼 녹화 중인 거 봤어 큰일 났다!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "caught",
+   "kind": "chat",
+   "text": "누가 경찰에 신고 좀 해줘야 하는 거 아님?? ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "caught",
+   "kind": "chat",
+   "text": "형 괜찮아?? 대답 좀 해봐 방송 꺼진다!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "caught",
+   "kind": "chat",
+   "text": "방금 찍은 영상들 날아가면 안 되는데 ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "caught",
+   "kind": "chat",
+   "text": "헐 강제로 종료당하네 무사히 연락 남기길 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "stand_up",
+   "kind": "chat",
+   "text": "어 형 왜 갑자기 자리에서 일어나?? ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "stand_up",
+   "kind": "reply",
+   "text": "다 앉아 있는데 혼자 서 있으면 바로 표적 되잖아!!",
+   "amount": 0,
+   "reply_to": "어 형 왜 갑자기 자리에서 일어나?? ㄷㄷ"
+  },
+  {
+   "situation": "stand_up",
+   "kind": "chat",
+   "text": "미쳤어?? 시선 한 몸에 다 받는다 빨리 앉아 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "stand_up",
+   "kind": "question",
+   "text": "혹시 키 잘못 눌러서 일어난 거 아님??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "stand_up",
+   "kind": "chat",
+   "text": "주변 눈꺼풀들 다 쳐다보잖아 당장 앉으라고!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "stand_up",
+   "kind": "chat",
+   "text": "상남자네 아예 서서 찍기로 마음먹은 거임? ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "stand_up",
+   "kind": "hater",
+   "text": "잠입 방송이라더니 자진 납세 방송이네 ㅋㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "stand_up",
+   "kind": "chat",
+   "text": "의심 게이지 폭주한다 제발 도로 앉아 형!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "rush_stage",
+   "kind": "chat",
+   "text": "야야 무대 앞으로 걸어가면 어떡해 미쳤어?? ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "rush_stage",
+   "kind": "reply",
+   "text": "눈동자님 코앞까지 진격하네 노빠꾸 레전드 ㅋㅋㅋ",
+   "amount": 0,
+   "reply_to": "야야 무대 앞으로 걸어가면 어떡해 미쳤어?? ㄷㄷ"
+  },
+  {
+   "situation": "rush_stage",
+   "kind": "chat",
+   "text": "관리자들 다 뛰어온다 빨리 뒤로 빠져 ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "rush_stage",
+   "kind": "chat",
+   "text": "가까이서 S급 한 방 찍고 장렬히 전사하려는 각인가!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "rush_stage",
+   "kind": "chat",
+   "text": "심장 터질 거 같아 진짜 무대 위로 올라가네 ㅁㅊ!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "rush_stage",
+   "kind": "hater",
+   "text": "컨셉 확실하네 조회수에 영혼을 팔았구만 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "rush_stage",
+   "kind": "chat",
+   "text": "돌아올 다리는 불살랐다 무조건 찍고 튀어!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "donation",
+   "kind": "donation",
+   "text": "천 원으로 심박수 체크합니다 무음 켰지 형??",
+   "amount": 1000,
+   "reply_to": ""
+  },
+  {
+   "situation": "donation",
+   "kind": "donation",
+   "text": "손 떨지 말고 줌 꽉 당겨서 증거 건져오자 화이팅!!",
+   "amount": 5000,
+   "reply_to": ""
+  },
+  {
+   "situation": "donation",
+   "kind": "donation",
+   "text": "목숨 걸고 잠입했는데 만 원은 쏴야지 조심해서 나와!!",
+   "amount": 10000,
+   "reply_to": ""
+  },
+  {
+   "situation": "donation",
+   "kind": "donation",
+   "text": "혹시 알림음 켜놨으면 지금 옆자리 눈꺼풀이 들었을 듯 ㅋㅋ",
+   "amount": 2000,
+   "reply_to": ""
+  },
+  {
+   "situation": "donation",
+   "kind": "donation",
+   "text": "오늘 방송 레전드다 변호사 비용에 보태 써라 형!!",
+   "amount": 50000,
+   "reply_to": ""
+  },
+  {
+   "situation": "donation",
+   "kind": "donation",
+   "text": "바깥 짐 비움 달성판보다 여기 후원하는 게 백배 낫지 ㅋㅋ",
+   "amount": 10000,
+   "reply_to": ""
+  },
+  {
+   "situation": "donation",
+   "kind": "donation",
+   "text": "배터리 닳는다 안 찍을 땐 주머니에 넣어둬 ㅠㅠ",
+   "amount": 3000,
+   "reply_to": ""
+  },
+  {
+   "situation": "donation",
+   "kind": "donation",
+   "text": "띠링 소리 나면 바로 들키는 거 알지?? 화이팅 ㅋㅋ",
+   "amount": 1000,
+   "reply_to": ""
+  },
+  {
+   "situation": "donation",
+   "kind": "donation",
+   "text": "올해 본 라이브 중에 제일 쫄깃함 몸만 무사히 빠져나와!!",
+   "amount": 30000,
+   "reply_to": ""
+  },
+  {
+   "situation": "mod",
+   "kind": "mod",
+   "text": "[공지] 실존 단체 언급 및 과도한 욕설은 타임아웃 처리됩니다.",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "mod",
+   "kind": "mod",
+   "text": "[매니저] 스트리머 안전을 위해 위치 추측성 채팅은 자제해 주세요.",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "mod",
+   "kind": "mod",
+   "text": "[공지] 도배 및 어그로 채팅은 무통보 차단합니다. 방송에 집중해 주세요!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "mod",
+   "kind": "mod",
+   "text": "[매니저] 현재 겹눈의 집 잠입 생중계 중입니다. 클립 생성 환영합니다.",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "hater",
+   "kind": "hater",
+   "text": "솔직히 친구들 모아놓고 찍는 주작극 티 너무 남 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "hater",
+   "kind": "hater",
+   "text": "진짜 위험한 데면 라이브를 어떻게 켜냐 다 짜고 치는 거지",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "hater",
+   "kind": "hater",
+   "text": "폰 들고 서 있어도 안 잡혀가는 거 보면 백퍼 세트장임 ㅅㄱ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "hater",
+   "kind": "hater",
+   "text": "조회수 빨려고 별 쇼를 다 하네 내일이면 해명 영상 올릴 듯 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "hater",
+   "kind": "hater",
+   "text": "카메라 흔드는 것도 일부러 긴장감 주려고 연기하는 거 보소",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "hater",
+   "kind": "hater",
+   "text": "어차피 결정적 장면은 못 찍고 어영부영 끝낼 거 다 앎 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "hater",
+   "kind": "hater",
+   "text": "후원 유도하려고 일부러 아슬아슬한 척하는 거 다 보인다~",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "question",
+   "kind": "question",
+   "text": "형 저기 어떻게 안 걸리고 들어간 거야??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "question",
+   "kind": "question",
+   "text": "들키면 진짜로 못 나오는 거 아님? 백업 대기 중이야?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "question",
+   "kind": "question",
+   "text": "폰 화면 불빛 때문에 옆자리 사람한테 안 보여?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "question",
+   "kind": "question",
+   "text": "왜 맨눈으로 볼 때랑 카메라로 볼 때랑 다르게 보이는 거임?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "question",
+   "kind": "question",
+   "text": "바깥 소등까지 41일이라는 게 무슨 뜻인지 아는 사람??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "question",
+   "kind": "question",
+   "text": "지금 녹화한 거 경찰이나 방송국에 바로 넘길 거지?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "question",
+   "kind": "question",
+   "text": "저 하얀 천은 입구에서 나눠준 거야? 형도 갖고 있어?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "question",
+   "kind": "question",
+   "text": "배터리 다 닳으면 생방 바로 꺼지는 거임??",
+   "amount": 0,
+   "reply_to": ""
+  }
+ ]
+}

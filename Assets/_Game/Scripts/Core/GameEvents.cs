@@ -33,6 +33,10 @@ namespace UndercoverLive
         public static event Action<bool> PlayerStoodChanged;
         /// <summary>예배가 끝까지 감 → 업로드 결과 화면.</summary>
         public static event Action ServiceFinished;
+        /// <summary>플레이어가 일어선 채 무대(교주) 쪽으로 가까이 감 (NPC 담당이 발생, 채팅·교주 반응용).</summary>
+        public static event Action PlayerNearStage;
+        /// <summary>채팅 상황 신호: 어느 시스템이든 "지금 이런 상황"을 채팅에 알린다. 키는 채팅 문구의 situation 키(phase_sermon, stand_up, checkpoint 등).</summary>
+        public static event Action<string> ChatCue;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         static void ResetStatics()
@@ -40,6 +44,7 @@ namespace UndercoverLive
             Phase = GamePhase.Menu;
             PhaseChanged = null; CheckpointStarted = null; CheckpointEnded = null;
             Confiscated = null; Warning = null; PlayerStoodChanged = null; ServiceFinished = null;
+            PlayerNearStage = null; ChatCue = null;
             // SkipMenuOnce는 씬을 다시 불러도 유지되어야 해서 지우지 않는다
         }
 
@@ -57,5 +62,7 @@ namespace UndercoverLive
         public static void RaiseWarning(string text) => Warning?.Invoke(text);
         public static void RaisePlayerStood(bool standing) => PlayerStoodChanged?.Invoke(standing);
         public static void RaiseServiceFinished() => ServiceFinished?.Invoke();
+        public static void RaisePlayerNearStage() => PlayerNearStage?.Invoke();
+        public static void RaiseChatCue(string situation) => ChatCue?.Invoke(situation);
     }
 }
