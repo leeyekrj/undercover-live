@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa5021be25e42e78aa4836435470d60, type: 3}
+  m_Name: RitualClips
+  m_EditorClassIdentifier: 
+  sitIdle: {fileID: -203655887218126122, guid: ff76ee729d9db4c9fac27da061fb7757, type: 3}
+  sitClap: {fileID: -203655887218126122, guid: 2eae021b922914558b20797eb74d583e, type: 3}
+  handRaise: {fileID: -203655887218126122, guid: 73cea280b1be5447091525dbe8d8d7db, type: 3}
+  praying: {fileID: -203655887218126122, guid: 19315305fab3349ae8f29baf8f38f8fe, type: 3}
+  kneelIdle: {fileID: -203655887218126122, guid: 2a5f3af03ceb24db59e18f25650eee73, type: 3}
+  kneelDown: {fileID: -203655887218126122, guid: 0ce340f4f67814f9eac9c40463436d7b, type: 3}
+  standIdle: {fileID: -203655887218126122, guid: 75279b13b15d54ef6803c12631ed70ef, type: 3}
+  cheering: {fileID: -203655887218126122, guid: e36a20a0702114ef3bcacd4ed28051eb, type: 3}
+  talking: {fileID: -203655887218126122, guid: 3ab377a4ab53d445cbcefacf9f91bcd2, type: 3}
+  walk: {fileID: -203655887218126122, guid: 267f2acf7270e4e718b6d5ea3a4b9aba, type: 3}
