@@ -108,9 +108,9 @@ namespace UndercoverLive
         public const string StareLeaderLine = "거기, 하얀 천을 쓰지 않은 차가운 유리 눈이 있군요!";
         public const string StareEndReason = "렌즈 너머의 눈과 마주쳤습니다";
         public const string StareChatSpam = "내 눈을 덮고 눈동자님만 본다";
-        public const float StareFilmSeconds = 3f;     // 강림 중 누적 촬영 시간이 넘으면 내려온다
-        public const float StareGrace = 1.5f;         // 확보 뒤 이 안에 폰을 내려야 산다
-        public const float StareMaxClose = 6.5f;      // 확보 못 해도 코앞에서 이만큼 버티면 끝
+        public const float StareFilmSeconds = 4f;     // 강림 중 누적 촬영 시간이 넘으면 내려온다
+        public const float StareGrace = 3f;           // 확보 뒤 이 안에 폰을 내려야 산다
+        public const float StareMaxClose = 8f;        // 확보 못 해도 코앞에서 이만큼 버티면 끝
 
         // ---------- 달성판 ----------
         public const string DonationNames = "미납  김○○ 3,200만 · 박○○ 1,750만 · 이○○ 980만 · 최○○ 640만";
