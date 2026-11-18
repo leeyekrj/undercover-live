@@ -22,6 +22,10 @@ namespace UndercoverLive.EditorTools
             var args = Environment.GetCommandLineArgs();
             for (int i = 0; i < args.Length - 1; i++)
                 if (args[i] == "-buildOutput") outPath = args[i + 1];
+            // 배치 빌드(복사본) 전용: 웹 다운로드 크기를 줄인다. 4096px Mixamo 텍스처가 용량의 80%였다(빌드 112MB → 줄임).
+            // 에디터 메뉴 빌드에는 적용하지 않아 원본 프로젝트의 빌드 설정을 바꾸지 않는다.
+            EditorUserBuildSettings.overrideMaxTextureSize = 1024;
+            PlayerSettings.SplashScreen.show = false;
             bool ok = false;
             try { ok = Build(outPath); }
             catch (Exception e) { Debug.LogException(e); }

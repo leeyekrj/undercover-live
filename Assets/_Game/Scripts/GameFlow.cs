@@ -85,7 +85,16 @@ namespace UndercoverLive
             var local = pc.Head.InverseTransformPoint(w.EyePosition);
             string where = local.z < -0.5f ? "뒤에" : local.x < -1f ? "왼쪽에" : local.x > 1f ? "오른쪽에" : "앞에";
             string who = w.kind == WatcherKind.Staff ? "검은 옷 입은 사람" : w.kind == WatcherKind.Leader ? "교주" : w.kind == WatcherKind.CCTV ? "천장 카메라" : "사람";
-            feed.Warn($"{where} {who}이 쳐다봐요!! 폰 내려요");
+            feed.Warn($"{where} {who}{SubjectJosa(who)} 쳐다봐요!! 폰 내려요");
+        }
+
+        // 받침이 있으면 '이', 없으면 '가' (교주가 · 사람이 · 카메라가)
+        static string SubjectJosa(string word)
+        {
+            if (string.IsNullOrEmpty(word)) return "이";
+            char c = word[word.Length - 1];
+            if (c < 0xAC00 || c > 0xD7A3) return "이";
+            return (c - 0xAC00) % 28 != 0 ? "이" : "가";
         }
 
         void OnCaught()
