@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UndercoverLive
 {
@@ -23,27 +22,41 @@ namespace UndercoverLive
         [Tooltip("EyeOnly(6)는 폰에 안 찍히므로 기본 제외")]
         public LayerMask occlusionMask = ~(1 << 6);
 
-        [Header("초점 상자")]
-        public float boxThickness = 3f;
-        public Color holdColor = new Color(1f, 0.85f, 0.1f, 1f);
-        public Color capturedColor = new Color(0.25f, 1f, 0.35f, 1f);
+        [Header("확보 표시 (초점 상자는 HUD/PhoneAppUI가 그린다)")]
         public float flashSeconds = 0.6f;
 
+        [Header("스냅샷")]
+        [Tooltip("확보 순간 화면을 이 긴 변 크기로 줄여 저장")]
+        public int snapshotSize = 480;
+        public int maxSnapshots = 12;
+
+        [Header("소리")]
+        [Tooltip("주머니 속 녹음은 먹먹하다 (몰래·촬영은 1)")]
+        public float pocketSoundMultiplier = 0.5f;
+
         public event Action<CaptureResult> Captured;
+
+        public static CaptureJudge Instance { get; private set; }
 
         public CaptureTarget CurrentTarget { get; private set; }
         public float CurrentQuality { get; private set; }
         public float HoldProgress { get { return CurrentTarget != null && CurrentTarget.holdSeconds > 0f ? Mathf.Clamp01(hold / CurrentTarget.holdSeconds) : 0f; } }
+        /// <summary>지금 확보 중인 대상의 폰 화면(뷰포트 0~1) 사각형.</summary>
+        public Rect CurrentRect => currentRect;
+        /// <summary>지금까지 유지한 평균 품질 (예상 등급 = GradeOf(이 값)).</summary>
+        public float HoldAverageQuality => hold > 0f ? qSum / hold : CurrentQuality;
+        /// <summary>마지막 영상 확보 순간의 뷰포트 사각형과 시각(Time.time). 소리 확보는 바꾸지 않는다.</summary>
+        public Rect LastCaptureRect => flashRect;
+        public float LastCaptureTime => flashUntil - flashSeconds;
+        /// <summary>판정 기준(최소 품질)과 상관없이 지금 폰 화면에 가장 크게 잡힌 대상 (채팅 상황 고르기용). 없으면 null.</summary>
+        public CaptureTarget FramedTarget { get; private set; }
+        /// <summary>FramedTarget의 화면 높이 / 필요 높이 (1 미만이면 작게 잡힘 → 줌 요청).</summary>
+        public float FramedSize01 { get; private set; }
 
         // 유지 상태
         float hold, qSum, lastGoodTime;
         Rect currentRect;
-
-        // 초점 상자 UI
-        RectTransform boxRoot;
-        Image[] bars;
-        RectTransform boxParentCached;
-        float flashUntil;
+        float flashUntil = -99f;
         Rect flashRect;
 
         static readonly RaycastHit[] hitBuf = new RaycastHit[16];
@@ -51,8 +64,13 @@ namespace UndercoverLive
             new Vector3(-1,-1,-1), new Vector3(1,-1,-1), new Vector3(-1,1,-1), new Vector3(1,1,-1),
             new Vector3(-1,-1, 1), new Vector3(1,-1, 1), new Vector3(-1,1, 1), new Vector3(1,1, 1) };
 
+        void Awake() { Instance = this; }
+
+        void OnDestroy() { if (Instance == this) Instance = null; }
+
         void Update()
         {
+            if (!GameEvents.IsPlaying) return;   // 메뉴·도입·멈춤·엔딩에서는 판정도 멈춘다
             var pc = PhoneController.Instance;
             UpdateSounds(pc);
 
@@ -61,7 +79,7 @@ namespace UndercoverLive
             if (!recording)
             {
                 ResetHold();
-                UpdateBox(pc);
+                FramedTarget = null; FramedSize01 = 0f;
                 return;
             }
 
@@ -72,15 +90,20 @@ namespace UndercoverLive
             CaptureTarget best = null;
             float bestScore = -1f, bestQ = 0f;
             Rect bestRect = default;
+            CaptureTarget framed = null;
+            float framedQ = 0.08f, framedSize = 0f;
 
             var all = CaptureTarget.All;
             for (int i = 0; i < all.Count; i++)
             {
                 var t = all[i];
                 if (t == null || !t.activeNow || t.category == CaptureCategory.Sound) continue;
-                if (Time.time - t.lastCaptureTime < recaptureCooldown) continue;
                 float q; Rect r;
+                // 채팅용 '화면에 잡힌 대상'은 재확보 대기와 상관없이 본다 (판정에는 영향 없음)
+                bool cooling = Time.time - t.lastCaptureTime < recaptureCooldown;
                 if (!Evaluate(cam, t, stab * stateMul, out q, out r)) continue;
+                if (q > framedQ) { framedQ = q; framed = t; framedSize = r.height / Mathf.Max(0.01f, t.requiredHeight); }
+                if (cooling) continue;
                 if (onlyEligibleCompete && q < minQuality) continue;
                 float score = t.baseViews * q;
                 if (score > bestScore) { bestScore = score; best = t; bestQ = q; bestRect = r; }
@@ -101,16 +124,17 @@ namespace UndercoverLive
                     var rect = currentRect;
                     var t = best;
                     ResetHold();
-                    Register(t, avg, pc);
-                    flashRect = rect;
+                    flashRect = rect;                       // HUD가 확보 이벤트에서 이 사각형을 읽으므로 먼저 넣는다
                     flashUntil = Time.time + flashSeconds;
+                    Register(t, avg, pc);
                 }
             }
             else if (CurrentTarget != null && Time.time - lastGoodTime > graceSeconds)
             {
                 ResetHold();
             }
-            UpdateBox(pc);
+            FramedTarget = framed;
+            FramedSize01 = framed != null ? framedSize : 0f;
         }
 
         void ResetHold()
@@ -202,6 +226,12 @@ namespace UndercoverLive
             float novelty = prior == 0 ? 1f : (prior == 1 ? 0.4f : 0.1f);
             float flow = Mathf.Min(1.5f, 1f + 0.25f * CaptureLog.CountSince(Time.time - flowWindow));
             float views = t.baseViews * GradeMultiplier(grade) * novelty * flow;
+            // 보도 가치는 대상마다 최고 1회분만 합산: 이번 값이 이전 최고보다 높을 때 그 차이만 더한다
+            // (새로움 배율은 시청자에만). 같은 대상을 반복해 찍어 가치를 무한히 쌓을 수 없다.
+            float fullNews = t.evidenceValue * GradeMultiplier(grade);
+            float priorNews = 0f;
+            foreach (var c in CaptureLog.Clips) if (c.TargetId == t.Id) priorNews += c.NewsValue;
+            float news = Mathf.Max(0f, fullNews - priorNews);
 
             var res = new CaptureResult
             {
@@ -212,7 +242,7 @@ namespace UndercoverLive
                 Grade = grade,
                 AverageQuality = avgQuality,
                 Viewers = Mathf.RoundToInt(views),
-                NewsValue = t.evidenceValue * GradeMultiplier(grade),
+                NewsValue = news,
                 Novelty = novelty,
                 Flow = flow,
                 Snapshot = Snap(pc),
@@ -220,7 +250,21 @@ namespace UndercoverLive
             };
             t.lastCaptureTime = Time.time;
             CaptureLog.Add(res);
+            TrimSnapshots();
             Captured?.Invoke(res);
+        }
+
+        /// <summary>스냅샷은 최대 maxSnapshots장. 넘치면 오래된 것부터 지운다.</summary>
+        void TrimSnapshots()
+        {
+            int n = 0;
+            for (int i = CaptureLog.Clips.Count - 1; i >= 0; i--)
+            {
+                var c = CaptureLog.Clips[i];
+                if (c.Snapshot == null) continue;
+                n++;
+                if (n > maxSnapshots) { Destroy(c.Snapshot); c.Snapshot = null; }
+            }
         }
 
         public static CaptureGrade GradeOf(float q)
@@ -242,16 +286,23 @@ namespace UndercoverLive
             }
         }
 
+        /// <summary>확보 순간 폰 화면을 작게 (긴 변 snapshotSize px) 떠 둔다. 폰 카메라가 꺼져 있으면(몰래) 한 장만 렌더.</summary>
         Texture2D Snap(PhoneController pc)
         {
             if (pc == null || pc.Feed == null) return null;
-            var rt = pc.Feed;
+            pc.RenderFeedNow();
+            var src = pc.Feed;
+            float k = Mathf.Min(1f, snapshotSize / (float)Mathf.Max(src.width, src.height));
+            int w = Mathf.Max(16, Mathf.RoundToInt(src.width * k)), h = Mathf.Max(16, Mathf.RoundToInt(src.height * k));
+            var small = RenderTexture.GetTemporary(w, h, 0, RenderTextureFormat.Default);
+            Graphics.Blit(src, small);
             var prev = RenderTexture.active;
-            var tex = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
-            RenderTexture.active = rt;
-            tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
+            var tex = new Texture2D(w, h, TextureFormat.RGB24, false);
+            RenderTexture.active = small;
+            tex.ReadPixels(new Rect(0, 0, w, h), 0, 0);
             tex.Apply(false);
             RenderTexture.active = prev;
+            RenderTexture.ReleaseTemporary(small);
             return tex;
         }
 
@@ -275,8 +326,9 @@ namespace UndercoverLive
                     bool ok = hasEar && pc != null && pc.IsAudioRecording && d <= t.hearingRadius;
                     if (ok)
                     {
+                        float muffle = pc.State == PhoneState.Pocket ? pocketSoundMultiplier : 1f;
                         t.soundHeard += dt;
-                        t.soundQSum += (1f - 0.75f * Mathf.Clamp01(d / Mathf.Max(0.1f, t.hearingRadius))) * dt;
+                        t.soundQSum += (1f - 0.75f * Mathf.Clamp01(d / Mathf.Max(0.1f, t.hearingRadius))) * muffle * dt;
                     }
                     else t.soundMissed += dt;
                 }
@@ -298,85 +350,6 @@ namespace UndercoverLive
             var m = Camera.main;
             if (m != null) { pos = m.transform.position; return true; }
             pos = default; return false;
-        }
-
-        // ---------- 초점 상자 ----------
-
-        void EnsureBox(PhoneController pc)
-        {
-            if (pc == null || pc.ScreenArea == null) return;
-            if (boxRoot != null && boxParentCached == pc.ScreenArea) return;
-            if (boxRoot != null) Destroy(boxRoot.gameObject);
-            boxParentCached = pc.ScreenArea;
-
-            var go = new GameObject("FocusBox", typeof(RectTransform));
-            boxRoot = go.GetComponent<RectTransform>();
-            boxRoot.SetParent(pc.ScreenArea, false);
-            boxRoot.pivot = new Vector2(0.5f, 0.5f);
-            boxRoot.offsetMin = boxRoot.offsetMax = Vector2.zero;
-
-            bars = new Image[4];
-            for (int i = 0; i < 4; i++)
-            {
-                var bg = new GameObject("Bar" + i, typeof(RectTransform), typeof(Image));
-                var rt = bg.GetComponent<RectTransform>();
-                rt.SetParent(boxRoot, false);
-                var img = bg.GetComponent<Image>();
-                img.raycastTarget = false;
-                bars[i] = img;
-                switch (i)
-                {
-                    case 0: rt.anchorMin = new Vector2(0, 1); rt.anchorMax = new Vector2(1, 1); rt.pivot = new Vector2(0.5f, 1); break; // 위
-                    case 1: rt.anchorMin = new Vector2(0, 0); rt.anchorMax = new Vector2(1, 0); rt.pivot = new Vector2(0.5f, 0); break; // 아래
-                    case 2: rt.anchorMin = new Vector2(0, 0); rt.anchorMax = new Vector2(0, 1); rt.pivot = new Vector2(0, 0.5f); break; // 왼
-                    default: rt.anchorMin = new Vector2(1, 0); rt.anchorMax = new Vector2(1, 1); rt.pivot = new Vector2(1, 0.5f); break; // 오른
-                }
-                rt.anchoredPosition = Vector2.zero;
-            }
-            SetThickness();
-            boxRoot.gameObject.SetActive(false);
-        }
-
-        void SetThickness()
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                var rt = (RectTransform)bars[i].transform;
-                rt.sizeDelta = i < 2 ? new Vector2(0, boxThickness) : new Vector2(boxThickness, 0);
-            }
-        }
-
-        void UpdateBox(PhoneController pc)
-        {
-            EnsureBox(pc);
-            if (boxRoot == null) return;
-
-            bool flashing = Time.time < flashUntil;
-            bool holding = CurrentTarget != null;
-            bool show = pc != null && pc.IsScreenVisible && (flashing || holding);
-            if (boxRoot.gameObject.activeSelf != show) boxRoot.gameObject.SetActive(show);
-            if (!show) return;
-
-            Rect r = flashing ? flashRect : currentRect;
-            boxRoot.anchorMin = new Vector2(r.xMin, r.yMin);
-            boxRoot.anchorMax = new Vector2(r.xMax, r.yMax);
-            boxRoot.offsetMin = boxRoot.offsetMax = Vector2.zero;
-
-            Color col = holdColor;
-            if (flashing)
-            {
-                // 0.6초 동안 초록 깜빡
-                float k = (flashUntil - Time.time) / flashSeconds;
-                bool on = Mathf.FloorToInt(k * 6f) % 2 == 0;
-                col = capturedColor;
-                col.a = on ? 1f : 0.25f;
-            }
-            for (int i = 0; i < 4; i++) bars[i].color = col;
-        }
-
-        void OnDestroy()
-        {
-            if (boxRoot != null) Destroy(boxRoot.gameObject);
         }
     }
 }
