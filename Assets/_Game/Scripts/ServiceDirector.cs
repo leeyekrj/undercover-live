@@ -54,6 +54,7 @@ namespace UndercoverLive
 
         void Update()
         {
+            if (!GameEvents.IsPlaying) return;
             var kb = Keyboard.current;
             if (kb != null && kb.mKey.wasPressedThisFrame && !Running) StartCoroutine(Run());
             if (autoLoop && !Running)

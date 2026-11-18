@@ -21,25 +21,22 @@ namespace UndercoverLive
             var e = transform.localEulerAngles;
             yaw = e.y > 180 ? e.y - 360 : e.y;
             pitch = e.x > 180 ? e.x - 360 : e.x;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            // 커서 잠금·풀림은 게임 단계(UIFlow)가 맡는다. Esc는 멈춤 메뉴.
         }
 
         void Update()
         {
+            // 메뉴·도입·멈춤·엔딩 동안엔 시점이 돌지 않는다
+            if (!GameEvents.IsPlaying) return;
             var mouse = Mouse.current;
-            var kb = Keyboard.current;
-            if (kb != null && kb.escapeKey.wasPressedThisFrame)
-            {
-                Cursor.lockState = CursorLockMode.None; Cursor.visible = true;
-            }
+            // 웹에서 잠금이 풀렸을 때 화면을 누르면 다시 잠근다 (Playing일 때만)
             if (mouse != null && mouse.leftButton.wasPressedThisFrame && Cursor.lockState != CursorLockMode.Locked)
             {
                 Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false;
             }
             if (mouse == null || Cursor.lockState != CursorLockMode.Locked) return;
 
-            float s = sensitivity;
+            float s = sensitivity * SettingsStore.MouseSensitivity;
             var phone = PhoneController.Instance;
             if (phone != null && phone.State == PhoneState.Aimed) s *= aimedSensitivityScale * Mathf.Lerp(1f, 0.35f, phone.Zoom01);
             Vector2 d = mouse.delta.ReadValue() * s;
