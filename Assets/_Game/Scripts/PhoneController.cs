@@ -136,6 +136,10 @@ namespace UndercoverLive
             {
                 if (kb.eKey.wasPressedThisFrame) SetState(State == PhoneState.Hidden ? PhoneState.Pocket : PhoneState.Hidden);
                 if (kb.digit4Key.wasPressedThisFrame || kb.numpad4Key.wasPressedThisFrame) SetState(PhoneState.Pocket);
+                // 1·2·3 바로 고르기 (Paul 11-18: 유지) — 1 주머니 · 2 몰래 · 3 촬영
+                if (kb.digit1Key.wasPressedThisFrame || kb.numpad1Key.wasPressedThisFrame) SetState(PhoneState.Pocket);
+                if (kb.digit2Key.wasPressedThisFrame || kb.numpad2Key.wasPressedThisFrame) SetState(PhoneState.Hidden);
+                if (kb.digit3Key.wasPressedThisFrame || kb.numpad3Key.wasPressedThisFrame) SetState(PhoneState.Aimed);
             }
             if (State == PhoneState.Aimed)
             {
