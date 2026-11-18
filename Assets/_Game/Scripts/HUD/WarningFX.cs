@@ -69,7 +69,7 @@ namespace UndercoverLive
 
         void BuildEdges()
         {
-            var vig = UIKit.EdgeVignette(128, 0.55f);
+            var vig = UIKit.EdgeVignette(128, 0.64f);
             // 몰래: 화면 가장자리
             edgeFull = UIKit.Image("EdgePulseFull", canvas.transform, UIKit.A(UIKit.Rec, 0f), vig);
             UIKit.Stretch(edgeFull.rectTransform);
@@ -212,7 +212,7 @@ namespace UndercoverLive
             // 가장자리 맥박
             float s = Heartbeat.MaxSuspicion;
             bool exposed = pc != null && pc.State != PhoneState.Pocket && GameEvents.IsPlaying;
-            float strength = exposed && s >= 30f ? Mathf.Lerp(0.35f, 0.85f, Mathf.InverseLerp(30f, 90f, s)) : 0f;
+            float strength = exposed && s >= 30f ? Mathf.Lerp(0.28f, 0.6f, Mathf.InverseLerp(30f, 90f, s)) : 0f;
             float a = strength * (0.3f + 0.7f * Heartbeat.Pulse);
             edgeAimed.color = UIKit.A(UIKit.Rec, a * blend);
             edgeAimedLine.color = UIKit.A(UIKit.Hex("#FF5C66"), a * 0.9f * blend);

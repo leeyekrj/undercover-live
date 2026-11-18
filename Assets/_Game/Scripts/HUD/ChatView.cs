@@ -11,7 +11,7 @@ namespace UndercoverLive
     public class ChatView
     {
         const int MaxCards = 5;
-        const float Width = 470f, PadX = 14f, PadY = 9f, Gap = 8f;
+        const float Width = 600f, PadX = 14f, PadY = 9f, Gap = 8f;
 
         static readonly string[] NickPalette = { "FFB86B", "7FD6FF", "A6F29B", "FF8FB1", "D2A8FF", "FFE27A", "8FB4FF", "7CE8CF" };
 
