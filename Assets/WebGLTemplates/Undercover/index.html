@@ -107,7 +107,7 @@
           companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
           productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
           productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
-          devicePixelRatio: 1,
+          devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
           showBanner: function (msg, type) { if (type === "error") statusEl.textContent = msg; },
         }, function (p) {
           progressEl.style.width = Math.round(p * 100) + "%";

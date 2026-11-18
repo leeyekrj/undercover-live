@@ -95,19 +95,9 @@ namespace UndercoverLive
             recLed = UIKit.Image("RecLed", body, UIKit.Rec, UIKit.Circle(64));
             HUDDraw.At(recLed.rectTransform, HUDDraw.TL, HUDDraw.TL, new Vector2(116f, -30f), new Vector2(8f, 8f));
 
-            // 손가락 실루엣: 오른쪽 가장자리를 감싼 세 손가락 + 왼쪽 엄지
-            Color skin = UIKit.Hex("#241B17");
-            for (int i = 0; i < 3; i++)
-            {
-                var f = UIKit.Box("Finger" + i, root, skin, 15);
-                HUDDraw.At(f.rectTransform, HUDDraw.TR, HUDDraw.MC, new Vector2(4f, -150f - i * 52f), new Vector2(58f, 34f));
-                f.rectTransform.localRotation = Quaternion.Euler(0, 0, -6f + i * 4f);
-            }
-            var thumb = UIKit.Box("Thumb", root, skin, 16);
-            HUDDraw.At(thumb.rectTransform, HUDDraw.TL, HUDDraw.MC, new Vector2(-2f, -250f), new Vector2(64f, 36f));
-            thumb.rectTransform.localRotation = Quaternion.Euler(0, 0, 18f);
-            var palm = UIKit.Box("Palm", root, skin, 30);
-            HUDDraw.At(palm.rectTransform, HUDDraw.BC, HUDDraw.MC, new Vector2(10f, 10f), new Vector2(W + 40f, 120f));
+            // 손: 따로 그린 손가락은 스티커처럼 보여서(11-18 검수) 빼고, 폰 아래를 받치는 어두운 손 그림자만 둔다
+            var palm = UIKit.Image("PalmShadow", root, new Color(0.02f, 0.015f, 0.012f, 0.92f), UIKit.VerticalFade(96));
+            HUDDraw.At(palm.rectTransform, HUDDraw.BC, HUDDraw.MC, new Vector2(10f, 30f), new Vector2(W + 120f, 220f));
 
             root.gameObject.SetActive(false);
         }
