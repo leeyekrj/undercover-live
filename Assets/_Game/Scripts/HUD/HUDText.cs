@@ -65,7 +65,7 @@ namespace UndercoverLive
             {
                 case WatcherKind.Staff: return "관리자";
                 case WatcherKind.Leader: return "교주";
-                case WatcherKind.CCTV: return "천장 카메라";
+                case WatcherKind.CCTV: return "천장의 붉은 눈";
                 default: return "신도";
             }
         }
@@ -77,7 +77,7 @@ namespace UndercoverLive
             {
                 case WatcherKind.Staff: return "관리자";
                 case WatcherKind.Leader: return "눈동자님";
-                case WatcherKind.CCTV: return "천장 카메라";
+                case WatcherKind.CCTV: return "천장의 붉은 눈";
                 default: return "눈꺼풀";
             }
         }
@@ -85,7 +85,7 @@ namespace UndercoverLive
         /// <summary>폰 위 알림 배너 한 줄. 예: "오른쪽에서 관리자가 보고 있어요".</summary>
         public static string BannerLine(string where, WatcherKind k)
         {
-            if (k == WatcherKind.CCTV) return "천장 카메라가 이쪽을 비추고 있어요";
+            if (k == WatcherKind.CCTV) return "천장의 붉은 눈이 이쪽을 보고 있어요";
             string who = WhoPlain(k);
             return where + "에서 " + who + UIKit.Josa(who) + " 보고 있어요";
         }
@@ -99,7 +99,7 @@ namespace UndercoverLive
         public const string RecSneak = "몰래";
         public const string LiveOff = "끊김";
         public const string BatteryDead = "배터리가 없어요";
-        public const string GoalLabel = "확보한 클립";
+        public const string GoalLabel = "오늘 찍을 것";
         public const string AlertLabel = "경계";
         public const string ZoomCaption = "휠 · -/+";
 

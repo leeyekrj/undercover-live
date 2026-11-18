@@ -224,6 +224,7 @@ namespace UndercoverLive
 
         readonly HashSet<string> distinct = new HashSet<string>();
         int countedClips = -1;
+        int objectivesDone;
 
         /// <summary>목표 진행은 클립 수가 아니라 서로 다른 대상 수 (같은 대상을 여러 번 찍어도 한 칸).</summary>
         int DistinctTargets()
@@ -234,8 +235,12 @@ namespace UndercoverLive
                 countedClips = clips.Count;
                 distinct.Clear();
                 foreach (var c in clips) if (c != null && !string.IsNullOrEmpty(c.TargetId)) distinct.Add(c.TargetId);
+                // 오늘의 목표(도입 체크리스트) 중 확보한 것 수 — 아무 대상 4개가 아니라 정해진 4개
+                objectivesDone = 0;
+                foreach (var oid in UIStrings.ObjectiveTargetIds)
+                    foreach (var t in distinct) if (t.StartsWith(oid)) { objectivesDone++; break; }
             }
-            return distinct.Count;
+            return objectivesDone;
         }
 
         void UpdateGoal(PhoneController pc, bool aimed)

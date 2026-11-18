@@ -504,20 +504,6 @@
   {
    "situation": "phase_miracle",
    "kind": "chat",
-   "text": "헐 저 사람 진짜 허공에 떴는데??",
-   "amount": 0,
-   "reply_to": ""
-  },
-  {
-   "situation": "phase_miracle",
-   "kind": "reply",
-   "text": "폰 화면으로 자세히 봐봐 뭐 달렸을걸!!",
-   "amount": 0,
-   "reply_to": "헐 저 사람 진짜 허공에 떴는데??"
-  },
-  {
-   "situation": "phase_miracle",
-   "kind": "chat",
    "text": "조명 뽕 넣어서 눈속임하는 거네 ㅋㅋㅋ",
    "amount": 0,
    "reply_to": ""

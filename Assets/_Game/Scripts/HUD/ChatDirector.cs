@@ -267,6 +267,8 @@ namespace UndercoverLive
         static string FramingSituation(string id)
         {
             if (string.IsNullOrEmpty(id)) return null;
+            var phen = PhenomenaCatalog.ChatSituationFor(id);   // 새 현상(겹눈 존재) 대상 — 담당 D의 표
+            if (!string.IsNullOrEmpty(phen)) return phen;
             if (id.StartsWith("leader")) return "framing_leader";
             if (id.StartsWith("crowd")) return "framing_crowd";
             if (id.StartsWith("banner")) return "framing_banner";
