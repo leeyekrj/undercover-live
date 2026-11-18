@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d5a2e178aa49edb76b322def502daf, type: 3}
+  m_Name: NpcClips
+  m_EditorClassIdentifier: 
+  walk: {fileID: -203655887218126122, guid: 267f2acf7270e4e718b6d5ea3a4b9aba, type: 3}
