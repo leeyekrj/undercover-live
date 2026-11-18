@@ -71,7 +71,14 @@ namespace UndercoverLive
         bool crowdFocusSet;
         SuspicionManager suspicion;
 
-        void Awake() { Instance = this; }
+        void Awake()
+        {
+            Instance = this;
+#if !UNITY_EDITOR
+            // 공개판에서는 건너뛰기 키(M·N)를 끈다. 검수 주소(?qa=1)에서만 켠다.
+            devKeys = (Application.absoluteURL ?? "").Contains("qa=1");
+#endif
+        }
 
         void Start()
         {

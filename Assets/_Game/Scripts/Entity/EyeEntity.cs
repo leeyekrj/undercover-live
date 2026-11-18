@@ -80,7 +80,7 @@ namespace UndercoverLive
             root.transform.position = HidePos;
             var flesh = EyeTexture.Flesh();
             bodyMat = EntityKit.Glow(new Color(0.55f, 0.40f, 0.42f), new Color(0.75f, 0.09f, 0.07f), flesh, flesh);
-            var tentMat = EntityKit.Glow(new Color(0.6f, 0.45f, 0.45f), new Color(0.9f, 0.12f, 0.08f), flesh, flesh);
+            var tentMat = EntityKit.Glow(new Color(0.2f, 0.13f, 0.14f), new Color(0.3f, 0.035f, 0.03f), flesh, flesh); // 11-18 검수: 형광 빨강 고무처럼 보여 어둡게
             var lidMat = EntityKit.Glow(new Color(0.18f, 0.03f, 0.03f), new Color(0.35f, 0.03f, 0.02f), flesh, flesh, true);
             var abyss = EyeTexture.Get(EyeStyle.Abyss);
             irisMat = EntityKit.Glow(Color.white, IrisGlow, abyss, abyss, true);

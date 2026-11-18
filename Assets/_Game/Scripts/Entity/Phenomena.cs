@@ -29,7 +29,7 @@ namespace UndercoverLive
             rootT = EntityKit.Group("Phenomena_PhoneOnly", null, P).transform;
 
             var flesh = EyeTexture.Flesh();
-            mFleshGlow = EntityKit.Glow(new Color(0.75f, 0.55f, 0.55f), new Color(0.45f, 0.07f, 0.05f), flesh, flesh);
+            mFleshGlow = EntityKit.Glow(new Color(0.24f, 0.17f, 0.17f), new Color(0.2f, 0.03f, 0.025f), flesh, flesh);
             mPaleBall = EntityKit.Opaque(new Color(0.86f, 0.80f, 0.70f), null, 0.55f);
             mShadow = EntityKit.Clear(new Color(0.01f, 0f, 0.012f, 0.84f));
             mThread = EntityKit.Clear(new Color(0.86f, 0.84f, 0.80f, 0.42f));
