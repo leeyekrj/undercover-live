@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -32,6 +33,7 @@ namespace UndercoverLive
         {
             Instance = null;
             PlayStartTime = 0f;
+            restarting = false;
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
@@ -107,13 +109,37 @@ namespace UndercoverLive
             if (GameEvents.Phase == GamePhase.Paused) GameEvents.SetPhase(GamePhase.Playing);
         }
 
-        /// <summary>씬을 다시 불러온다. skipMenu = true면 메인을 건너뛰고 도입부터(R 다시 하기).</summary>
+        static bool restarting;
+
+        /// <summary>
+        /// 씬을 다시 불러오는 유일한 길(R·다시 하기·메인으로·처음부터). skipMenu = true면 메인을 건너뛰고 도입부터.
+        /// '다시 준비하는 중'을 한 프레임 그린 뒤, 클립 기록·정적 이벤트·설정 구독을 비우고 불러온다.
+        /// </summary>
         public static void Restart(bool skipMenu)
         {
+            if (restarting) return;
+            restarting = true;
+            var c = UIKit.Canvas("ReloadCanvas", 270);
+            var bg = UIKit.Image("Bg", c.transform, UIParts.Bg);
+            UIKit.Stretch(bg.rectTransform);
+            bg.raycastTarget = true;
+            var t = UIParts.Label(c.transform, UIStrings.Reloading, 18, UIParts.Ink(0.72f), true, TextAnchor.MiddleCenter);
+            UIKit.Stretch(t.rectTransform);
+            UIKit.Run(ReloadCo(skipMenu));
+        }
+
+        static IEnumerator ReloadCo(bool skipMenu)
+        {
+            yield return null;   // 안내가 한 번 그려지게
+            yield return null;
+            GameEvents.ResetForReload();       // Phase = Menu, 이벤트 비움 (SkipMenuOnce는 유지)
             GameEvents.SkipMenuOnce = skipMenu;
+            SettingsStore.ResetForReload();
             CaptureLog.Clear();
+            Watcher.CrowdFocus = 1f;
             Time.timeScale = 1f;
             AudioListener.pause = false;
+            restarting = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 

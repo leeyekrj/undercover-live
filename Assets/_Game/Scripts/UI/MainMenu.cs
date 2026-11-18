@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace UndercoverLive
@@ -8,14 +7,16 @@ namespace UndercoverLive
     /// <summary>
     /// 메인 화면(Menu 단계). Argon 1안: 왼쪽 열에 교단 표식·ON AIR 칩·제목·소개·버튼 3개,
     /// 오른쪽 위 방송 대기 상태, 아래 가는 선과 인용·키 안내. 배경은 MenuCamera가 찍는 실제 3D 장면.
-    /// 서체 크기 4종: 84(제목) · 20(버튼·소개) · 16(교단 이름·칩 옆 문구) · 13(나머지).
+    /// 왼쪽 0~45%에 짙은 가로 그라데이션 받침(뒤 간판이 제목과 겹쳐 어수선하지 않게).
+    /// 키보드: ↑↓ 고르기 · Enter/Space 누르기. 서체 크기: 84 · 20 · 18 · 15 (장식 라벨 14).
     /// </summary>
     public class MainMenu : MonoBehaviour
     {
         Canvas canvas;
         RectTransform root;
         CanvasGroup group, leftCol;
-        Image recDot, ringL, ringR, startDot;
+        KeyNav nav;
+        Image recDot, ringL, ringR;
         RectTransform ringRRect, targetBox;
         CanvasGroup targetGroup;
         bool shown;
@@ -23,9 +24,10 @@ namespace UndercoverLive
 
         void Awake()
         {
-            canvas = UIKit.Canvas("MainMenuCanvas", 170, transform);
+            canvas = UIKit.Canvas("MainMenuCanvas", 200, transform);
             root = (RectTransform)canvas.transform;
             group = UIParts.Group(canvas.gameObject, 0f);
+            nav = KeyNav.On(canvas);
             Build();
             canvas.gameObject.SetActive(false);
         }
@@ -34,9 +36,11 @@ namespace UndercoverLive
         {
             var t = root;
 
-            // 왼쪽·아래 비네트 (무대 쪽은 열어 둠)
-            var vl = UIKit.Image("VignetteLeft", t, UIParts.Shade(0.92f), UIParts.HGradient(new[] { 0f, 0.58f, 1f }, new[] { 1f, 0.68f / 0.92f, 0f }));
-            UIKit.Place(vl.rectTransform, 0, 0, 860, 1080);
+            // 왼쪽 0~45% 받침 (왼쪽이 짙은 가로 그라데이션, 알파 0.85)
+            var vl = UIKit.Image("VignetteLeft", t, UIParts.Shade(0.85f), UIParts.HGradient(new[] { 0f, 0.55f, 1f }, new[] { 1f, 0.78f, 0f }));
+            var vrt = vl.rectTransform;
+            vrt.anchorMin = new Vector2(0f, 0f); vrt.anchorMax = new Vector2(0.45f, 1f);
+            vrt.offsetMin = vrt.offsetMax = Vector2.zero;
             var vb = UIKit.Image("VignetteBottom", t, UIParts.Shade(0.86f), UIKit.VerticalFade(128));
             UIKit.Place(vb.rectTransform, 0, 760, 1920, 320);
 
@@ -49,22 +53,24 @@ namespace UndercoverLive
 
             // 교단 표식: 겹친 두 원 + 이름·구호
             var mark = UIKit.Rect("CultMark", t);
-            UIKit.Place(mark, 128, 106, 52, 36);
+            UIKit.Place(mark, 128, 104, 52, 36);
             var m1 = UIParts.Ring("RingL", mark, UIKit.Accent, 36, 1.5f); UIKit.Place(m1.rectTransform, 0, 0, 36, 36);
             var m2 = UIParts.Ring("RingR", mark, UIKit.Accent, 36, 1.5f); UIKit.Place(m2.rectTransform, 16, 0, 36, 36);
             var pupil = UIParts.Dot("Pupil", mark, UIKit.Accent, 6); UIKit.Place(pupil.rectTransform, 23, 15, 6, 6);
-            UIParts.Label(t, UIStrings.CultName + " · " + UIStrings.CultCountdown, 16, UIKit.Accent, true, TextAnchor.MiddleLeft, 196, 100, 520, 24);
-            UIParts.Label(t, UIStrings.CultSlogan, 13, UIParts.Ink(0.56f), false, TextAnchor.MiddleLeft, 196, 124, 520, 20);
+            UIParts.Label(t, UIStrings.CultName + " · " + UIStrings.CultCountdown, 18, UIKit.Accent, true, TextAnchor.MiddleLeft, 196, 96, 560, 28);
+            UIParts.Label(t, UIStrings.CultSlogan, 15, UIParts.Ink(0.62f), false, TextAnchor.MiddleLeft, 196, 124, 560, 24);
 
             // 오른쪽 위: 방송 대기 상태
-            var hud = UIParts.Panel("StreamHud", t, UIParts.Shade(0.76f), 8, UIParts.Ink(0.16f));
-            UIKit.Place(hud.rectTransform, 1472, 96, 320, 44);
+            const float hudW = 372f, hudH = 52f;
+            var hud = UIParts.Panel("StreamHud", t, UIParts.Shade(0.8f), 10, UIParts.Ink(0.18f));
+            UIKit.Place(hud.rectTransform, 1792 - hudW, 96, hudW, hudH);
             recDot = UIParts.Dot("RecDot", hud.transform, UIKit.Rec, 10);
-            UIKit.Place(recDot.rectTransform, 16, 17, 10, 10);
-            UIParts.Label(hud.transform, UIStrings.MenuRecIdle, 13, UIKit.Ink, true, TextAnchor.MiddleLeft, 34, 0, 100, 44);
-            var live = UIParts.Pill(hud.transform, UIStrings.MenuLiveIdle, 13, UIKit.Rec, UIKit.A(UIKit.Rec, 0.18f), UIKit.Rec, true, 0, 11, 22, 8, 4);
-            live.anchoredPosition = new Vector2(160 - live.sizeDelta.x * 0.5f, -11);
-            var bat = UIParts.Label(hud.transform, UIStrings.MenuBattery, 13, UIParts.Ink(0.68f), false, TextAnchor.MiddleRight, 200, 0, 104, 44);
+            UIKit.Place(recDot.rectTransform, 18, 21, 10, 10);
+            var rec = UIParts.Label(hud.transform, UIStrings.MenuRecIdle, 15, UIKit.Ink, true, TextAnchor.MiddleLeft, 38, 0, 120, hudH);
+            rec.horizontalOverflow = HorizontalWrapMode.Overflow;
+            var live = UIParts.Pill(hud.transform, UIStrings.MenuLiveIdle, 15, UIKit.Rec, UIKit.A(UIKit.Rec, 0.18f), UIKit.Rec, true, 0, 12, 28, 10, 5);
+            live.anchoredPosition = new Vector2(176 - live.sizeDelta.x * 0.5f, -12);
+            var bat = UIParts.Label(hud.transform, UIStrings.MenuBattery, 15, UIParts.Ink(0.72f), false, TextAnchor.MiddleRight, 220, 0, hudW - 238, hudH);
             bat.horizontalOverflow = HorizontalWrapMode.Overflow;
 
             // 왼쪽 열 (등장 애니메이션 묶음)
@@ -80,25 +86,27 @@ namespace UndercoverLive
             UIKit.Place(ringRRect, 212, 290, 220, 220);
 
             // ON AIR 칩 + 문구
-            var chip = UIParts.Pill(col, UIStrings.MenuTag, 13, UIKit.Ink, UIKit.Rec, new Color(0, 0, 0, 0), true, 128, 348, 28, 10, 4);
-            UIParts.Label(col, UIStrings.MenuTagSub, 16, UIKit.Accent, false, TextAnchor.MiddleLeft, 128 + chip.sizeDelta.x + 12, 348, 360, 28);
+            var chip = UIParts.Pill(col, UIStrings.MenuTag, 14, UIKit.Ink, UIKit.Rec, new Color(0, 0, 0, 0), true, 128, 346, 30, 10, 4);
+            UIParts.Label(col, UIStrings.MenuTagSub, 18, UIKit.Accent, false, TextAnchor.MiddleLeft, 128 + chip.sizeDelta.x + 12, 346, 360, 30);
 
             // 제목
             UIParts.Label(col, UIStrings.GameTitle, 84, UIKit.Ink, true, TextAnchor.MiddleLeft, 124, 384, 680, 104);
 
             // 두 줄 소개
-            var tag = UIParts.Label(col, UIStrings.MenuTagline, 20, UIParts.Ink(0.74f), false, TextAnchor.UpperLeft, 128, 500, 620, 64);
+            var tag = UIParts.Label(col, UIStrings.MenuTagline, 20, UIParts.Ink(0.8f), false, TextAnchor.UpperLeft, 128, 500, 640, 64);
             tag.lineSpacing = 1.2f;
 
             // 버튼 3개
-            var start = UIParts.Button("Start", col, 128, 592, 380, 68, UIKit.Rec, UIKit.A(Color.white, 0.22f), 10, () => UIFlow.Instance?.StartGame());
-            startDot = UIParts.Dot("Dot", start.transform, UIKit.Ink, 12);
-            UIKit.Place(startDot.rectTransform, 24, 28, 12, 12);
+            var start = UIParts.Button("Start", col, 128, 592, 400, 68, UIKit.Rec, UIKit.A(Color.white, 0.22f), 10, () => UIFlow.Instance?.StartGame());
+            var sd = UIParts.Dot("Dot", start.transform, UIKit.Ink, 12);
+            UIKit.Place(sd.rectTransform, 24, 28, 12, 12);
             UIParts.Label(start.transform, UIStrings.MenuStart, 20, UIKit.Ink, true, TextAnchor.MiddleLeft, 48, 0, 200, 68);
-            UIParts.Label(start.transform, UIStrings.MenuStartHint, 13, UIParts.Ink(0.86f), false, TextAnchor.MiddleRight, 180, 0, 176, 68);
+            UIParts.Label(start.transform, UIStrings.MenuStartHint, 15, UIParts.Ink(0.9f), false, TextAnchor.MiddleRight, 200, 0, 176, 68);
+            nav.Add(start, 10);
 
-            SecondaryButton(col, 674, UIStrings.MenuControls, UIStrings.MenuControlsHint, () => UIFlow.Instance?.Controls.Open());
-            SecondaryButton(col, 746, UIStrings.MenuSettings, UIStrings.MenuSettingsHint, () => UIFlow.Instance?.Settings.Open());
+            nav.Add(SecondaryButton(col, 674, UIStrings.MenuControls, UIStrings.MenuControlsHint, () => UIFlow.Instance?.Controls.Open()), 10);
+            nav.Add(SecondaryButton(col, 746, UIStrings.MenuSettings, UIStrings.MenuSettingsHint, () => UIFlow.Instance?.Settings.Open()), 10);
+            UIParts.Label(col, UIStrings.NavHint, 15, UIParts.Ink(0.5f), false, TextAnchor.MiddleLeft, 128, 822, 600, 24);
 
             // 무대 위 TARGET 상자 (교주 위치를 따라감)
             targetBox = UIKit.Rect("Target", t);
@@ -106,15 +114,15 @@ namespace UndercoverLive
             targetBox.pivot = new Vector2(0.5f, 0.5f);
             targetBox.sizeDelta = new Vector2(200, 200);
             targetGroup = UIParts.Group(targetBox.gameObject, 0f);
-            var frame = UIParts.Line("Frame", targetBox, UIKit.A(UIKit.Accent, 0.55f), 1, 1.5f);
-            frame.rectTransform.sizeDelta = Vector2.zero;
-            var tl = UIParts.Label(targetBox, UIStrings.MenuTarget, 13, UIKit.Accent, true, TextAnchor.LowerLeft, 0, -28, 260, 22);
+            UIParts.Line("Frame", targetBox, UIKit.A(UIKit.Accent, 0.55f), 1, 1.5f);
+            var tl = UIParts.Label(targetBox, UIStrings.MenuTarget, 14, UIKit.Accent, true, TextAnchor.LowerLeft, 0, -28, 260, 22);
             tl.horizontalOverflow = HorizontalWrapMode.Overflow;
 
             // 아래: 가는 선 + 인용 + 키 안내
             UIParts.Bar("BottomLine", t, UIParts.Ink(0.14f), 128, 932, 1664, 1);
-            UIParts.Label(t, UIStrings.PhoneBanQuote, 13, UIKit.A(UIKit.Accent, 0.88f), false, TextAnchor.MiddleLeft, 128, 944, 900, 24);
-            var keys = UIParts.Label(t, KeyHints(), 13, UIParts.Ink(0.56f), false, TextAnchor.MiddleRight, 892, 944, 900, 24);
+            var quote = UIParts.Label(t, UIStrings.PhoneBanQuote, 15, UIKit.A(UIKit.Accent, 0.9f), false, TextAnchor.MiddleLeft, 128, 944, 820, 26);
+            quote.horizontalOverflow = HorizontalWrapMode.Overflow;
+            var keys = UIParts.Label(t, KeyHints(), 15, UIParts.Ink(0.62f), false, TextAnchor.MiddleRight, 992, 944, 800, 26);
             keys.horizontalOverflow = HorizontalWrapMode.Overflow;
         }
 
@@ -130,11 +138,12 @@ namespace UndercoverLive
             return sb.ToString();
         }
 
-        void SecondaryButton(Transform parent, float y, string label, string hint, System.Action onClick)
+        Button SecondaryButton(Transform parent, float y, string label, string hint, System.Action onClick)
         {
-            var b = UIParts.Button(label, parent, 128, y, 380, 58, UIParts.Ink(0.06f), UIParts.Ink(0.18f), 10, onClick);
+            var b = UIParts.Button(label, parent, 128, y, 400, 58, UIParts.Ink(0.07f), UIParts.Ink(0.2f), 10, onClick);
             UIParts.Label(b.transform, label, 20, UIKit.Ink, true, TextAnchor.MiddleLeft, 24, 0, 160, 58);
-            UIParts.Label(b.transform, hint, 13, UIParts.Ink(0.52f), false, TextAnchor.MiddleRight, 140, 0, 216, 58);
+            UIParts.Label(b.transform, hint, 15, UIParts.Ink(0.62f), false, TextAnchor.MiddleRight, 140, 0, 236, 58);
+            return b;
         }
 
         // ---------- 보이기·숨기기 ----------
@@ -145,6 +154,8 @@ namespace UndercoverLive
             shown = true;
             shownAt = Time.unscaledTime;
             canvas.gameObject.SetActive(true);
+            nav.Select(0);
+            nav.Live = true;
             StopAllCoroutines();
             StartCoroutine(UIParts.FadeTo(group, 1f, 0.5f));
             var colRt = (RectTransform)leftCol.transform;
@@ -159,6 +170,7 @@ namespace UndercoverLive
         {
             if (!shown) return;
             shown = false;
+            nav.Live = false;
             StopAllCoroutines();
             if (!gameObject.activeInHierarchy) { canvas.gameObject.SetActive(false); return; }
             StartCoroutine(HideCo());
@@ -187,13 +199,6 @@ namespace UndercoverLive
                 ringR.color = UIKit.A(UIKit.Accent, a);
             }
             UpdateTarget();
-
-            // Enter = 잠입 시작 (설정·조작법 창이 닫혀 있을 때)
-            var kb = Keyboard.current;
-            var f = UIFlow.Instance;
-            if (kb != null && f != null && !f.Settings.IsOpen && !f.Controls.IsOpen
-                && (kb.enterKey.wasPressedThisFrame || kb.numpadEnterKey.wasPressedThisFrame))
-                f.StartGame();
         }
 
         void UpdateTarget()
@@ -208,7 +213,7 @@ namespace UndercoverLive
                 {
                     // 왼쪽 열과 겹치면 숨김
                     float x = local.x + root.rect.width * 0.5f;
-                    ok = x > 800f && x < root.rect.width - 120f;
+                    ok = x > 860f && x < root.rect.width - 120f;
                     targetBox.anchoredPosition = local;
                 }
             }

@@ -17,7 +17,9 @@ namespace UndercoverLive
         [Tooltip("시작 위치: 맨눈 높이에서 위로 몇 m (앉은 머리들 위)")] public float rise = 0.6f;
         public float driftDistance = 1.6f;
         public float driftSeconds = 20f;
-        [Tooltip("교주를 화면 가운데보다 오른쪽에 두려고 시선을 왼쪽으로 비키는 거리(m)")] public float lookOffsetLeft = 1.1f;
+        [Tooltip("시작 위치를 맨눈 자리보다 오른쪽(가운데 통로 쪽)으로 옮기는 거리(m)")] public float startShiftRight = 0.8f;
+        [Tooltip("시선을 오른쪽으로 트는 각도. 왼쪽 벽 간판('바깥 소등까지')이 제목 뒤에 오지 않게")] public float yawRight = 5f;
+        [Tooltip("시선을 살짝 아래로(도). 위쪽 간판이 제목 줄보다 위로 올라가게")] public float pitchDown = 3f;
 
         Camera cam, eye;
         UniversalAdditionalCameraData eyeData;
@@ -73,8 +75,8 @@ namespace UndercoverLive
             hasFocus = FindLeader(out focus);
             if (!hasFocus) focus = ep + dir * 14f + Vector3.up * 0.4f;
             var right = Vector3.Cross(Vector3.up, dir).normalized;
-            lookAt = focus - right * lookOffsetLeft - Vector3.up * 0.25f;
-            startPos = ep - dir * backDistance + Vector3.up * rise;
+            lookAt = focus - Vector3.up * 0.25f;
+            startPos = ep - dir * backDistance + right * startShiftRight + Vector3.up * rise;
             t = 0f;
             handing = false;
             Pose(0f);
@@ -109,7 +111,8 @@ namespace UndercoverLive
             var pos = startPos + dir * (driftDistance * e);
             pos.y += Mathf.Sin(time * 0.45f) * 0.012f;     // 숨 쉬듯 아주 작은 흔들림
             cam.transform.position = pos;
-            cam.transform.rotation = Quaternion.LookRotation(lookAt - pos, Vector3.up);
+            var look = Quaternion.LookRotation(lookAt - pos, Vector3.up);
+            cam.transform.rotation = Quaternion.AngleAxis(yawRight, Vector3.up) * look * Quaternion.Euler(pitchDown, 0f, 0f);
         }
 
         void LateUpdate()

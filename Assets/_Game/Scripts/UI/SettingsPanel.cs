@@ -8,7 +8,7 @@ namespace UndercoverLive
     /// 설정 창(메인·멈춤 공용). 마우스 감도 0.3~2.0배 · 소리 크기 0~100% · 밝기 -1~+1.
     /// 값은 Core/SettingsStore에 저장한다(저장소가 PlayerPrefs·Changed 이벤트를 맡음). 밝기 적용은 폰·HUD 담당.
     /// 슬라이더를 끄는 동안엔 0.15초 간격으로만 저장소에 넣는다(웹에서 저장이 매 프레임 돌지 않게).
-    /// 서체 크기 4종: 28 · 18 · 15 · 13.
+    /// 키보드: ↑↓ 고르기 · ←→ 조절 · Enter 누르기 · Esc 닫기. 서체 크기 3종: 28 · 18 · 15.
     /// </summary>
     public class SettingsPanel : MonoBehaviour
     {
@@ -21,6 +21,7 @@ namespace UndercoverLive
         Slider sens, vol, bright;
         Text sensVal, volVal, brightVal;
         System.Action onClose;
+        KeyNav nav;
         float pSens, pVol, pBright;
         bool dirty;
         float lastCommit;
@@ -29,8 +30,9 @@ namespace UndercoverLive
 
         void Awake()
         {
-            canvas = UIKit.Canvas("SettingsCanvas", 180, transform);
+            canvas = UIKit.Canvas("SettingsCanvas", 265, transform);
             group = UIParts.Group(canvas.gameObject, 0f);
+            nav = KeyNav.On(canvas);
             Build();
             canvas.gameObject.SetActive(false);
         }
@@ -52,27 +54,35 @@ namespace UndercoverLive
             var t = m.transform;
 
             UIParts.Label(t, UIStrings.SettingsTitle, 28, UIKit.Ink, true, TextAnchor.MiddleLeft, 40, 30, 400, 44);
-            var close = UIParts.Button("Close", t, W - 40 - 132, 32, 132, 40, UIParts.Ink(0f), UIParts.Ink(0.2f), 10, Close);
-            UIParts.Label(close.transform, UIStrings.Close, 13, UIParts.Ink(0.8f), true, TextAnchor.MiddleLeft, 18, 0, 60, 40);
-            UIParts.Key(close.transform, "Esc", 13, UIParts.Ink(0.7f), UIParts.Ink(0.08f), UIParts.Ink(0.18f), 132 - 14 - 44, 9, 22, 44);
+            var close = UIParts.Button("Close", t, W - 40 - 148, 30, 148, 44, UIParts.Ink(0f), UIParts.Ink(0.22f), 10, Close);
+            UIParts.Label(close.transform, UIStrings.Close, 15, UIParts.Ink(0.86f), true, TextAnchor.MiddleLeft, 18, 0, 60, 44);
+            UIParts.Key(close.transform, "Esc", 15, UIParts.Ink(0.8f), UIParts.Ink(0.08f), UIParts.Ink(0.18f), 148 - 14 - 52, 8, 28, 52);
 
-            sens = Row(t, 104, UIStrings.SettingsSensitivity, UIStrings.SettingsSensitivityHint, 0.3f, 2f, out sensVal, v => { pSens = v; Changed(); });
-            vol = Row(t, 208, UIStrings.SettingsVolume, UIStrings.SettingsVolumeHint, 0f, 1f, out volVal, v => { pVol = v; Changed(); });
-            bright = Row(t, 312, UIStrings.SettingsBrightness, UIStrings.SettingsBrightnessHint, -1f, 1f, out brightVal, v => { pBright = v; Changed(); });
+            sens = Row(t, 104, UIStrings.SettingsSensitivity, UIStrings.SettingsSensitivityHint, 0.3f, 2f, 0.1f, out sensVal, v => { pSens = v; Changed(); });
+            vol = Row(t, 208, UIStrings.SettingsVolume, UIStrings.SettingsVolumeHint, 0f, 1f, 0.05f, out volVal, v => { pVol = v; Changed(); });
+            bright = Row(t, 312, UIStrings.SettingsBrightness, UIStrings.SettingsBrightnessHint, -1f, 1f, 0.1f, out brightVal, v => { pBright = v; Changed(); });
 
             UIParts.Bar("Div", t, UIParts.Ink(0.1f), 40, 432, W - 80, 1);
-            var reset = UIParts.Button("Reset", t, 40, 452, 160, 44, UIParts.Ink(0f), UIParts.Ink(0.2f), 10, ResetDefaults);
-            UIParts.Label(reset.transform, UIStrings.SettingsReset, 15, UIParts.Ink(0.8f), true, TextAnchor.MiddleCenter, 0, 0, 160, 44);
+            var reset = UIParts.Button("Reset", t, 40, 452, 160, 44, UIParts.Ink(0f), UIParts.Ink(0.22f), 10, ResetDefaults);
+            UIParts.Label(reset.transform, UIStrings.SettingsReset, 15, UIParts.Ink(0.86f), true, TextAnchor.MiddleCenter, 0, 0, 160, 44);
+            UIParts.Label(t, UIStrings.NavHintSlider, 15, UIParts.Ink(0.5f), false, TextAnchor.MiddleCenter, 210, 452, W - 420, 44);
             var done = UIParts.Button("Done", t, W - 40 - 160, 452, 160, 44, UIKit.Accent, new Color(0, 0, 0, 0), 10, Close);
             UIParts.Label(done.transform, UIStrings.Close, 15, UIParts.Dark, true, TextAnchor.MiddleCenter, 0, 0, 160, 44);
+            nav.Add(reset, 10);
+            nav.Add(done, 10);
         }
 
-        Slider Row(Transform t, float y, string label, string hint, float min, float max, out Text value, System.Action<float> onChange)
+        Slider Row(Transform t, float y, string label, string hint, float min, float max, float step, out Text value, System.Action<float> onChange)
         {
-            UIParts.Label(t, label, 18, UIKit.Ink, true, TextAnchor.MiddleLeft, 40, y, 400, 28);
-            value = UIParts.Label(t, "", 15, UIKit.Accent, true, TextAnchor.MiddleRight, W - 40 - 160, y, 160, 28);
-            UIParts.Label(t, hint, 13, UIParts.Ink(0.52f), false, TextAnchor.MiddleLeft, 40, y + 28, 500, 22);
-            return UIParts.Slider(t, 40, y + 60, W - 80, min, max, min, onChange);
+            // 줄 전체(라벨·값·설명·슬라이더)가 키보드 선택 단위
+            var row = UIKit.Rect("Row", t);
+            UIKit.Place(row, 28, y - 8, W - 56, 96);
+            UIParts.Label(row, label, 18, UIKit.Ink, true, TextAnchor.MiddleLeft, 12, 8, 400, 28);
+            value = UIParts.Label(row, "", 15, UIKit.Accent, true, TextAnchor.MiddleRight, W - 56 - 12 - 160, 8, 160, 28);
+            UIParts.Label(row, hint, 15, UIParts.Ink(0.6f), false, TextAnchor.MiddleLeft, 12, 36, 500, 24);
+            var s = UIParts.Slider(row, 12, 66, W - 80, min, max, min, onChange);
+            nav.AddSlider(s, row, step, 10);
+            return s;
         }
 
         public static string FormatBrightness(float b)
@@ -139,6 +149,8 @@ namespace UndercoverLive
             IsOpen = true;
             Sync();
             canvas.gameObject.SetActive(true);
+            nav.Select(0);
+            nav.Live = true;
             StopAllCoroutines();
             StartCoroutine(UIParts.FadeTo(group, 1f, 0.2f));
             StartCoroutine(UIParts.Anim(0.25f, k => modal.localScale = Vector3.one * Mathf.Lerp(0.97f, 1f, k)));
@@ -148,6 +160,7 @@ namespace UndercoverLive
         {
             if (!IsOpen) return;
             IsOpen = false;
+            nav.Live = false;
             Commit();
             StopAllCoroutines();
             if (gameObject.activeInHierarchy) StartCoroutine(CloseCo());
