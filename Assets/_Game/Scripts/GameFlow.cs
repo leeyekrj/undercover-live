@@ -4,8 +4,9 @@ using UnityEngine.UI;
 
 namespace UndercoverLive
 {
-    // 자막·시청자 경고·발각 화면 연결. UI는 코드로 만든다.
+    // 자막·발각 화면 연결. UI는 코드로 만든다.
     // 키 안내는 폰·HUD 담당이 상황별로 띄운다(예전 왼쪽 아래 안내·H 토글은 없앰).
+    // 누가 쳐다볼 때의 경고(배너+채팅 1줄)도 폰·HUD 담당이 맡는다(예전 여기서 내던 채팅 경고는 없앰 — 세 겹으로 뜨던 문제).
     public class GameFlow : MonoBehaviour
     {
         public static GameFlow Instance;
@@ -35,9 +36,6 @@ namespace UndercoverLive
             GameEvents.Confiscated += OnConfiscated;
             GameEvents.CheckpointStarted += OnCheckpointStarted;
             GameEvents.CheckpointEnded += OnCheckpointEnded;
-            // 폰을 든 동안엔 의심 표시가 안 보인다 → 시청자가 대신 알려 준다 (화면 가장자리를 보는 건 시청자)
-            feed = FindAnyObjectByType<StreamFeed>();
-            foreach (var w in FindObjectsByType<Watcher>()) w.Noticed += OnNoticed;
         }
 
         void OnDestroy()
@@ -46,7 +44,6 @@ namespace UndercoverLive
             GameEvents.Confiscated -= OnConfiscated;
             GameEvents.CheckpointStarted -= OnCheckpointStarted;
             GameEvents.CheckpointEnded -= OnCheckpointEnded;
-            foreach (var w in FindObjectsByType<Watcher>()) if (w != null) w.Noticed -= OnNoticed;
             if (Instance == this) Instance = null;
         }
 
@@ -114,21 +111,6 @@ namespace UndercoverLive
                 subVisible = false;
                 FadeSubtitle(0f, 0.25f);
             }
-        }
-
-        // ---------- 시청자 경고 ----------
-
-        StreamFeed feed;
-        float lastWarn = -99f;
-        void OnNoticed(Watcher w)
-        {
-            var pc = PhoneController.Instance;
-            if (feed == null || pc == null || !pc.IsRecording || Time.time - lastWarn < 4f) return;
-            lastWarn = Time.time;
-            var local = pc.Head.InverseTransformPoint(w.EyePosition);
-            string where = local.z < -0.5f ? "뒤에" : local.x < -1f ? "왼쪽에" : local.x > 1f ? "오른쪽에" : "앞에";
-            string who = w.kind == WatcherKind.Staff ? "검은 옷 입은 사람" : w.kind == WatcherKind.Leader ? "교주" : w.kind == WatcherKind.CCTV ? "천장 카메라" : "사람";
-            feed.Warn($"{where} {who}{UIKit.Josa(who)} 쳐다봐요!! 폰 내려요");
         }
 
         // ---------- 발각 ----------

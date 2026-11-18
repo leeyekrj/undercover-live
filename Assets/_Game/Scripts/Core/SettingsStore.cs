@@ -42,6 +42,9 @@ namespace UndercoverLive
             Changed?.Invoke();
         }
 
+        /// <summary>씬을 다시 불러오기 직전에 부른다: Changed 구독을 비운다(값은 그대로).</summary>
+        public static void ResetForReload() { Changed = null; }
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void ApplyOnStart() { Load(); AudioListener.volume = vol; }
     }

@@ -38,6 +38,12 @@ namespace UndercoverLive
         /// <summary>채팅 상황 신호: 어느 시스템이든 "지금 이런 상황"을 채팅에 알린다. 키는 채팅 문구의 situation 키(phase_sermon, stand_up, checkpoint 등).</summary>
         public static event Action<string> ChatCue;
 
+        /// <summary>
+        /// 씬을 다시 불러오기 직전(UIFlow.Restart)에 부른다: Phase = Menu, 이벤트 구독 전부 비움. SkipMenuOnce는 유지.
+        /// 옛 씬 구독자가 남아 예외를 던지면 새 씬 구독자가 불리지 않는 문제를 막는다.
+        /// </summary>
+        public static void ResetForReload() { ResetStatics(); }
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         static void ResetStatics()
         {

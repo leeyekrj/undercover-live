@@ -28,13 +28,14 @@ namespace UndercoverLive
         Image phoneRecDot, lensRing;
 
         bool playing, finishing;
+        float playAt;
         int scene;
         float sceneTimer;
         readonly List<Coroutine> sceneCos = new List<Coroutine>();
 
         void Awake()
         {
-            canvas = UIKit.Canvas("IntroCanvas", 150, transform);
+            canvas = UIKit.Canvas("IntroCanvas", 210, transform);
             root = (RectTransform)canvas.transform;
             group = UIParts.Group(canvas.gameObject, 0f);
             Build();
@@ -63,10 +64,10 @@ namespace UndercoverLive
             chromeGroup = UIParts.Group(chrome.gameObject);
             UIParts.Bar("ProgressTrack", chrome, UIParts.Ink(0.14f), 128, 1004, 1664, 3);
             progressFill = UIParts.Bar("ProgressFill", chrome, UIKit.Accent, 128, 1004, 0, 3);
-            UIParts.Label(chrome, UIStrings.IntroNextHint, 13, UIParts.Ink(0.56f), false, TextAnchor.MiddleLeft, 128, 960, 400, 32);
-            var skip = UIParts.Button("Skip", chrome, 1792 - 168, 956, 168, 36, UIParts.Shade(0.72f), UIParts.Ink(0.16f), 18, Skip);
-            UIParts.Label(skip.transform, UIStrings.IntroSkip, 13, UIParts.Ink(0.8f), true, TextAnchor.MiddleLeft, 20, 0, 90, 36);
-            UIParts.Key(skip.transform, "Esc", 13, UIParts.Ink(0.8f), UIParts.Ink(0.1f), UIParts.Ink(0.2f), 168 - 16 - 40, 7, 22, 40);
+            UIParts.Label(chrome, UIStrings.IntroNextHint, 15, UIParts.Ink(0.56f), false, TextAnchor.MiddleLeft, 128, 960, 400, 32);
+            var skip = UIParts.Button("Skip", chrome, 1792 - 196, 952, 196, 40, UIParts.Shade(0.72f), UIParts.Ink(0.18f), 20, Skip);
+            UIParts.Label(skip.transform, UIStrings.IntroSkip, 15, UIParts.Ink(0.86f), true, TextAnchor.MiddleLeft, 20, 0, 100, 40);
+            UIParts.Key(skip.transform, "Esc", 15, UIParts.Ink(0.86f), UIParts.Ink(0.1f), UIParts.Ink(0.2f), 196 - 16 - 48, 7, 26, 48);
         }
 
         CanvasGroup Scene(string name)
@@ -95,13 +96,13 @@ namespace UndercoverLive
                 UIKit.Place(ph.rectTransform, 56 + i * 52, 22, 40, 72);
                 ph.rectTransform.localRotation = Quaternion.Euler(0, 0, i == 0 ? 8f : -6f);
             }
-            UIParts.Pill(card.transform, UIStrings.IntroGateBadge, 13, UIKit.Ok, UIKit.A(UIKit.Ok, 0.14f), UIKit.A(UIKit.Ok, 0.4f), true, 256, 108, 28, 12, -1, UIKit.Ok);
+            UIParts.Pill(card.transform, UIStrings.IntroGateBadge, 15, UIKit.Ok, UIKit.A(UIKit.Ok, 0.14f), UIKit.A(UIKit.Ok, 0.4f), true, 256, 108, 28, 12, -1, UIKit.Ok);
             var note = UIParts.Label(card.transform, UIStrings.IntroGateNote, 18, UIParts.Ink(0.8f), false, TextAnchor.UpperLeft, 256, 148, 352, 56);
             note.lineSpacing = 1.15f;
-            UIParts.Label(card.transform, UIStrings.CultSlogan, 13, UIParts.Ink(0.48f), false, TextAnchor.MiddleLeft, 256, 192, 352, 24);
+            UIParts.Label(card.transform, UIStrings.CultSlogan, 15, UIParts.Ink(0.48f), false, TextAnchor.MiddleLeft, 256, 192, 352, 24);
 
             // 대사 + 속마음 (가운데, 타자 효과)
-            var spk = UIParts.Pill(t, UIStrings.IntroGateSpeaker, 13, UIKit.Accent, UIKit.A(UIKit.Accent, 0.14f), UIKit.A(UIKit.Accent, 0.45f), true, 0, 588, 26, 10, 6);
+            var spk = UIParts.Pill(t, UIStrings.IntroGateSpeaker, 15, UIKit.Accent, UIKit.A(UIKit.Accent, 0.14f), UIKit.A(UIKit.Accent, 0.45f), true, 0, 588, 26, 10, 6);
             spk.anchoredPosition = new Vector2(960 - spk.sizeDelta.x * 0.5f, -588);
             gateLine = UIParts.Label(t, "", 24, UIKit.Accent, true, TextAnchor.MiddleCenter, 360, 624, 1200, 40);
             gateThought = UIParts.Label(t, "", 18, UIParts.Ink(0.82f), false, TextAnchor.MiddleCenter, 360, 672, 1200, 32);
@@ -120,7 +121,7 @@ namespace UndercoverLive
             float top = 540 - (cardH + 24 + 76) * 0.5f;
             UIKit.Place(card.rectTransform, 320, top, 760, cardH);
             UIParts.Label(card.transform, UIStrings.IntroObjectivesTitle, 24, UIKit.Ink, true, TextAnchor.MiddleLeft, 36, 28, 500, 36);
-            UIParts.Label(card.transform, UIStrings.IntroObjectivesSub, 13, UIParts.Ink(0.52f), false, TextAnchor.MiddleLeft, 36, 64, 500, 22);
+            UIParts.Label(card.transform, UIStrings.IntroObjectivesSub, 15, UIParts.Ink(0.52f), false, TextAnchor.MiddleLeft, 36, 64, 500, 22);
             UIParts.Bar("Div", card.transform, UIParts.Ink(0.1f), 36, 100, 688, 1);
             objectiveRows.Clear();
             for (int i = 0; i < objectives.Length; i++)
@@ -130,7 +131,7 @@ namespace UndercoverLive
                 var rg = UIParts.Group(row.gameObject, 0f);
                 var box = UIParts.Panel("Check", row, new Color(0, 0, 0, 0), 5, UIKit.A(UIKit.Accent, 0.7f), 1.5f);
                 UIKit.Place(box.rectTransform, 0, 13, 22, 22);
-                UIParts.Label(row, (i + 1).ToString("00"), 13, UIKit.A(UIKit.Accent, 0.8f), true, TextAnchor.MiddleLeft, 40, 0, 40, 48);
+                UIParts.Label(row, (i + 1).ToString("00"), 15, UIKit.A(UIKit.Accent, 0.8f), true, TextAnchor.MiddleLeft, 40, 0, 40, 48);
                 UIParts.Label(row, objectives[i], 18, UIKit.Ink, true, TextAnchor.MiddleLeft, 76, 0, 600, 48);
                 objectiveRows.Add(rg);
             }
@@ -138,7 +139,7 @@ namespace UndercoverLive
             // 잠입 수칙 띠
             var rule = UIParts.Panel("Rule", t, UIKit.A(UIKit.Rec, 0.14f), 10, UIKit.Rec);
             UIKit.Place(rule.rectTransform, 320, top + cardH + 24, 760, 76);
-            UIParts.Label(rule.transform, UIStrings.IntroRuleLabel, 13, UIParts.RecSoft, true, TextAnchor.MiddleLeft, 24, 10, 300, 22);
+            UIParts.Label(rule.transform, UIStrings.IntroRuleLabel, 15, UIParts.RecSoft, true, TextAnchor.MiddleLeft, 24, 10, 300, 22);
             UIParts.Label(rule.transform, UIStrings.IntroRule, 18, UIKit.Ink, true, TextAnchor.MiddleLeft, 24, 32, 712, 32);
 
             // 숨긴 진짜 폰 (세로)
@@ -148,9 +149,9 @@ namespace UndercoverLive
             phoneGroup = UIParts.Group(phone.gameObject, 0f);
             phoneRecDot = UIParts.Dot("RecDot", phone.transform, UIKit.Rec, 8);
             UIKit.Place(phoneRecDot.rectTransform, 28, 30, 8, 8);
-            UIParts.Label(phone.transform, UIStrings.IntroPhoneStatusRec, 13, UIKit.Rec, true, TextAnchor.MiddleLeft, 42, 22, 120, 24);
-            UIParts.Label(phone.transform, UIStrings.IntroPhoneStatusLive, 13, UIKit.Ink, true, TextAnchor.MiddleCenter, 150, 22, 120, 24);
-            UIParts.Label(phone.transform, UIStrings.IntroPhoneStatusMute, 13, UIParts.Ink(0.56f), false, TextAnchor.MiddleRight, 290, 22, 102, 24);
+            UIParts.Label(phone.transform, UIStrings.IntroPhoneStatusRec, 15, UIKit.Rec, true, TextAnchor.MiddleLeft, 42, 22, 120, 24);
+            UIParts.Label(phone.transform, UIStrings.IntroPhoneStatusLive, 15, UIKit.Ink, true, TextAnchor.MiddleCenter, 150, 22, 120, 24);
+            UIParts.Label(phone.transform, UIStrings.IntroPhoneStatusMute, 15, UIParts.Ink(0.56f), false, TextAnchor.MiddleRight, 290, 22, 102, 24);
             var screen = UIParts.Panel("Screen", phone.transform, UIParts.ScreenBg, 18, UIParts.Ink(0.08f));
             UIKit.Place(screen.rectTransform, 16, 60, 388, 604);
             // 뷰파인더 모서리
@@ -167,7 +168,7 @@ namespace UndercoverLive
             var lensDot = UIParts.Dot("LensDot", ready, UIKit.Rec, 14);
             UIKit.Place(lensDot.rectTransform, 194 - 7, 256 - 7, 14, 14);
             UIParts.Label(ready, UIStrings.IntroPhoneReady, 18, UIKit.Ink, true, TextAnchor.MiddleCenter, 0, 344, 388, 32);
-            UIParts.Label(ready, UIStrings.IntroPhoneReadySub, 13, UIParts.Ink(0.56f), false, TextAnchor.MiddleCenter, 0, 378, 388, 24);
+            UIParts.Label(ready, UIStrings.IntroPhoneReadySub, 15, UIParts.Ink(0.56f), false, TextAnchor.MiddleCenter, 0, 378, 388, 24);
             return g;
         }
 
@@ -190,6 +191,7 @@ namespace UndercoverLive
             sceneCos.Clear();
             canvas.gameObject.SetActive(true);
             group.alpha = 0f;
+            playAt = Time.unscaledTime;
             playing = true;
             finishing = false;
             dimGroup.alpha = 1f;
@@ -274,7 +276,7 @@ namespace UndercoverLive
         /// <summary>클릭·Space: 다음 장면.</summary>
         public void Next()
         {
-            if (!playing || finishing) return;
+            if (!playing || finishing || Time.unscaledTime - playAt < 0.3f) return;
             if (scene + 1 < Durations.Length) GoTo(scene + 1);
             else Seat(false);
         }

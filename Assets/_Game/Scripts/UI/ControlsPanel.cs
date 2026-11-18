@@ -6,7 +6,7 @@ namespace UndercoverLive
 {
     /// <summary>
     /// 조작법 창. 메인과 멈춤에서 같이 쓴다. 왼쪽 = 폰 쓰는 법(내림·몰래 찍기·들기를 눈높이 그림으로),
-    /// 오른쪽 = 키 안내(새 조작 기준, 개발용 키 없음). 서체 크기 4종: 28 · 18 · 15 · 13.
+    /// 오른쪽 = 키 안내(새 조작 기준, 개발용 키 없음). 키보드 Enter·Esc로 닫기. 서체 크기 3종: 28 · 18 · 15.
     /// </summary>
     public class ControlsPanel : MonoBehaviour
     {
@@ -16,12 +16,14 @@ namespace UndercoverLive
         CanvasGroup group;
         RectTransform modal;
         System.Action onClose;
+        KeyNav nav;
         public bool IsOpen { get; private set; }
 
         void Awake()
         {
-            canvas = UIKit.Canvas("ControlsCanvas", 180, transform);
+            canvas = UIKit.Canvas("ControlsCanvas", 260, transform);
             group = UIParts.Group(canvas.gameObject, 0f);
+            nav = KeyNav.On(canvas);
             Build();
             canvas.gameObject.SetActive(false);
         }
@@ -62,10 +64,10 @@ namespace UndercoverLive
             float rowH = Mathf.Min(76f, (540f - 72f) / Mathf.Max(1, rows));
             for (int i = 0; i < rows; i++)
             {
-                float y = 64 + i * rowH;
+                float y = 62 + i * rowH;
                 UIParts.Key(right.transform, keys[i * 3], 15, UIKit.Accent, UIKit.A(UIKit.Accent, 0.16f), new Color(0, 0, 0, 0), 24, y + 4, 30, 60);
-                UIParts.Label(right.transform, keys[i * 3 + 1], 18, UIKit.Ink, true, TextAnchor.MiddleLeft, 100, y, 340, 28);
-                UIParts.Label(right.transform, keys[i * 3 + 2], 15, UIParts.Ink(0.68f), false, TextAnchor.MiddleLeft, 100, y + 28, 340, 24);
+                UIParts.Label(right.transform, keys[i * 3 + 1], 18, UIKit.Ink, true, TextAnchor.MiddleLeft, 112, y, 330, 28);
+                UIParts.Label(right.transform, keys[i * 3 + 2], 15, UIParts.Ink(0.7f), false, TextAnchor.MiddleLeft, 112, y + 28, 330, 24);
             }
         }
 
@@ -87,16 +89,17 @@ namespace UndercoverLive
 
             var nm = UIParts.Label(parent, name, 18, UIKit.Ink, true, TextAnchor.MiddleLeft, 116, y + 4, 200, 28);
             float nw = Mathf.Ceil(UIParts.Width(nm));
-            UIParts.Key(parent, key, 13, UIKit.Accent, UIKit.A(UIKit.Accent, 0.16f), new Color(0, 0, 0, 0), 116 + nw + 10, y + 6, 24);
+            UIParts.Key(parent, key, 15, UIKit.Accent, UIKit.A(UIKit.Accent, 0.16f), new Color(0, 0, 0, 0), 116 + nw + 10, y + 4, 28);
             var d = UIParts.Label(parent, desc, 15, UIParts.Ink(0.74f), false, TextAnchor.UpperLeft, 116, y + 40, 320, 92);
             d.lineSpacing = 1.2f;
         }
 
         void CloseButton(Transform t, float w)
         {
-            var b = UIParts.Button("Close", t, w - 40 - 132, 32, 132, 40, UIParts.Ink(0f), UIParts.Ink(0.2f), 10, Close);
-            UIParts.Label(b.transform, UIStrings.Close, 13, UIParts.Ink(0.8f), true, TextAnchor.MiddleLeft, 18, 0, 60, 40);
-            UIParts.Key(b.transform, "Esc", 13, UIParts.Ink(0.7f), UIParts.Ink(0.08f), UIParts.Ink(0.18f), 132 - 14 - 44, 9, 22, 44);
+            var b = UIParts.Button("Close", t, w - 40 - 148, 30, 148, 44, UIParts.Ink(0f), UIParts.Ink(0.22f), 10, Close);
+            UIParts.Label(b.transform, UIStrings.Close, 15, UIParts.Ink(0.86f), true, TextAnchor.MiddleLeft, 18, 0, 60, 44);
+            UIParts.Key(b.transform, "Esc", 15, UIParts.Ink(0.8f), UIParts.Ink(0.08f), UIParts.Ink(0.18f), 148 - 14 - 52, 8, 28, 52);
+            nav.Add(b, 10);
         }
 
         public void Open(System.Action closed = null)
@@ -105,6 +108,8 @@ namespace UndercoverLive
             if (IsOpen) return;
             IsOpen = true;
             canvas.gameObject.SetActive(true);
+            nav.Select(0);
+            nav.Live = true;
             StopAllCoroutines();
             StartCoroutine(UIParts.FadeTo(group, 1f, 0.2f));
             StartCoroutine(UIParts.Anim(0.25f, k => modal.localScale = Vector3.one * Mathf.Lerp(0.97f, 1f, k)));
@@ -114,6 +119,7 @@ namespace UndercoverLive
         {
             if (!IsOpen) return;
             IsOpen = false;
+            nav.Live = false;
             StopAllCoroutines();
             if (gameObject.activeInHierarchy) StartCoroutine(CloseCo());
             else canvas.gameObject.SetActive(false);
