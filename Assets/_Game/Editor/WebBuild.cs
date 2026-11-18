@@ -73,7 +73,7 @@ namespace UndercoverLive.EditorTools
             var wg = UnityEditor.Build.NamedBuildTarget.WebGL;
             PlayerSettings.SetManagedStrippingLevel(wg, ManagedStrippingLevel.Medium);
             PlayerSettings.stripEngineCode = true;
-            PlayerSettings.SetIl2CppCodeGeneration(wg, Il2CppCodeGeneration.OptimizeSize);
+            PlayerSettings.SetIl2CppCodeGeneration(wg, UnityEditor.Build.Il2CppCodeGeneration.OptimizeSize);
             Debug.Log($"[WebBuild] 웹 용량 줄이기: 텍스처 {tex}개, 모델 {mdl}개, 코드 제거 Medium");
         }
 
