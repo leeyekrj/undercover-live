@@ -23,7 +23,7 @@
       #overlay {
         position: fixed; inset: 0; display: grid; place-items: center; padding: 24px;
         background: radial-gradient(ellipse at 50% 40%, rgba(11, 11, 13, 0.72), rgba(11, 11, 13, 0.96) 70%);
-        transition: opacity 0.5s ease;
+        transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
       }
       #overlay.ready { pointer-events: none; }
       #overlay.gone { opacity: 0; }
@@ -55,13 +55,11 @@
       <div class="card">
         <span class="live"><i></i>LIVE</span>
         <h1>잠입 라이브</h1>
-        <p class="lede">사이비 집회에 신도인 척 들어간 유튜버가 됩니다. <b>맨눈엔 기적이, 폰엔 와이어가</b> 보입니다. 들키지 않고 결정적인 장면을 찍어 예배가 끝날 때까지 버티세요.</p>
+        <p class="lede">사이비 집회에 신도인 척 들어간 유튜버가 됩니다. <b>맨눈엔 평온한 집회가, 숨긴 폰엔 다른 것이</b> 찍힙니다. 들키지 않고 찍어서 집회가 끝날 때까지 버티세요.</p>
         <dl>
-          <dt>마우스</dt><dd>둘러보기</dd>
-          <dt>우클릭</dt><dd>폰 꺼내기 → 들기 → 넣기 (1·2·3 바로 선택, Q 넣기)</dd>
-          <dt>휠</dt><dd>폰을 든 채 줌</dd>
-          <dt>M</dt><dd>기적 바로 시작</dd>
-          <dt>Esc</dt><dd>커서 풀기, 다시 클릭하면 잠김</dd>
+          <dt>우클릭</dt><dd>폰 들기 · 내리기</dd>
+          <dt>E</dt><dd>몰래 찍기</dd>
+          <dt>Esc</dt><dd>멈춤</dd>
         </dl>
         <div class="bar"><span id="progress"></span></div>
         <div id="status">불러오는 중</div>
@@ -86,6 +84,7 @@
       fit();
 
       canvas.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+      canvas.addEventListener("mousedown", function () { canvas.focus(); });
       overlay.addEventListener("contextmenu", function (e) { e.preventDefault(); });
 
       function start() {
@@ -114,13 +113,13 @@
           progressEl.style.width = Math.round(p * 100) + "%";
           statusEl.textContent = "불러오는 중 " + Math.round(p * 100) + "%";
         }).then(function () {
+          // 게임 안에 메인 화면이 있으니 클릭을 기다리지 않고 바로 걷는다
           overlay.classList.add("ready");
-          statusEl.textContent = "화면을 클릭하면 시작합니다";
-          canvas.addEventListener("mousedown", function () {
-            canvas.focus();
-            overlay.classList.add("gone");
-            setTimeout(function () { overlay.classList.add("hidden"); }, 500);
-          }, { once: true });
+          statusEl.textContent = "준비 완료";
+          progressEl.style.width = "100%";
+          canvas.focus();
+          requestAnimationFrame(function () { overlay.classList.add("gone"); });
+          setTimeout(function () { overlay.classList.add("hidden"); }, 400);
         }).catch(function (message) {
           statusEl.textContent = "불러오지 못했습니다: " + message;
         });
