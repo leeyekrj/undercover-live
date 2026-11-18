@@ -35,6 +35,7 @@ namespace UndercoverLive
             var go = new GameObject("NPC Systems");
             go.AddComponent<ConfiscateFX>();
             go.AddComponent<Checkpoint>();
+            go.AddComponent<CrowdReactions>();
         }
     }
 
