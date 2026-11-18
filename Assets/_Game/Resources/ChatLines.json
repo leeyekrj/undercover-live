@@ -1914,6 +1914,531 @@
    "text": "배터리 다 닳으면 생방 바로 꺼지는 거임??",
    "amount": 0,
    "reply_to": ""
+  },
+  {
+   "situation": "framing_portrait_eyes",
+   "kind": "chat",
+   "text": "헐 초상화 눈알 튀어나왔는데??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_portrait_eyes",
+   "kind": "question",
+   "text": "저거 액자 밖으로 나온 거 맞지ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_portrait_eyes",
+   "kind": "reply",
+   "text": "ㅇㅇ 카메라 움직이는 대로 따라옴;;",
+   "amount": 0,
+   "reply_to": "저거 액자 밖으로 나온 거 맞지ㄷㄷ"
+  },
+  {
+   "situation": "framing_portrait_eyes",
+   "kind": "hater",
+   "text": "에이 홀로그램 트릭이겠지 ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_portrait_eyes",
+   "kind": "donation",
+   "text": "그림 눈알이 렌즈 째려본다 도망쳐ㅠㅠ",
+   "amount": 3000,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_portrait_eyes",
+   "kind": "chat",
+   "text": "눈동자 굴러가는 소리 들릴 듯 소름",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_portrait_eyes",
+   "kind": "chat",
+   "text": "아 진짜 그림이랑 눈 마주쳤어 끔찍해",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_banner_eyes",
+   "kind": "chat",
+   "text": "잠만 현수막 글자 사이에 저거 뭐임?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_banner_eyes",
+   "kind": "chat",
+   "text": "천에 하얀 눈알들 박혀서 깜빡거림ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_banner_eyes",
+   "kind": "question",
+   "text": "인쇄된 무늬가 아니라 진짜 움직이는 거?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_banner_eyes",
+   "kind": "reply",
+   "text": "방금 다 같이 껌뻑이는 거 똑똑히 봄;;",
+   "amount": 0,
+   "reply_to": "인쇄된 무늬가 아니라 진짜 움직이는 거?"
+  },
+  {
+   "situation": "framing_banner_eyes",
+   "kind": "hater",
+   "text": "빔프로젝터 쏜 거잖아 다들 왜 저래ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_banner_eyes",
+   "kind": "donation",
+   "text": "환공포증 오니까 현수막 줌 당기지 마ㅠㅠ",
+   "amount": 5000,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_banner_eyes",
+   "kind": "chat",
+   "text": "글자 틈마다 눈알 바글거리는 거 개역겨워",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_ceiling_eyes",
+   "kind": "chat",
+   "text": "야 천장 구석에 빨간 불빛 저거 뭐야",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_ceiling_eyes",
+   "kind": "chat",
+   "text": "CCTV인 줄 알았는데 핏줄 터진 눈알 뭉치임ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_ceiling_eyes",
+   "kind": "question",
+   "text": "저 덩어리들이 지금 홀 전체 훑고 있는 거냐?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_ceiling_eyes",
+   "kind": "reply",
+   "text": "ㅇㅇ 사각지대 없이 사방으로 다 굴러감;;",
+   "amount": 0,
+   "reply_to": "저 덩어리들이 지금 홀 전체 훑고 있는 거냐?"
+  },
+  {
+   "situation": "framing_ceiling_eyes",
+   "kind": "donation",
+   "text": "천장 구석이랑 시선 마주치면 끝장날 듯 숙여!",
+   "amount": 10000,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_ceiling_eyes",
+   "kind": "hater",
+   "text": "붉은 조명에 소품 달아둔 거 티 나는데ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_ceiling_eyes",
+   "kind": "chat",
+   "text": "위에서 붉은 눈들이 우릴 사냥감 보듯 본다ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_threads",
+   "kind": "chat",
+   "text": "신도들 정수리에 반투명한 줄 꽂혀 있음ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_threads",
+   "kind": "chat",
+   "text": " 방금 똑같은 각도로 다 같이 고개 꺾었어 소름!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_threads",
+   "kind": "chat",
+   "text": "목에서 우두둑 소리 났는데 꼭두각시 인형 같음ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_threads",
+   "kind": "hater",
+   "text": "안무 맞춰서 고개 꺾는 거잖아 낚이지 마ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_threads",
+   "kind": "donation",
+   "text": "줄 팽팽해질 때마다 사람 눈빛이 죽어간다 튀어!",
+   "amount": 5000,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_shadow",
+   "kind": "chat",
+   "text": "교주 등 뒤 벽에 그림자 모양이 이상한데??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_shadow",
+   "kind": "chat",
+   "text": "사람 그림자가 아니라 눈 일곱 개 달린 괴물이야ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_shadow",
+   "kind": "question",
+   "text": "조명 각도 때문인가 왜 저렇게 거대하게 비침?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_shadow",
+   "kind": "reply",
+   "text": "교주는 가만히 있는데 그림자만 따로 움직여;;",
+   "amount": 0,
+   "reply_to": "조명 각도 때문인가 왜 저렇게 거대하게 비침?"
+  },
+  {
+   "situation": "framing_shadow",
+   "kind": "donation",
+   "text": "벽에 비친 일곱 눈이 전부 스트리머 쪽을 본다ㅠㅠ",
+   "amount": 10000,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_shadow",
+   "kind": "hater",
+   "text": "뒤에서 그림자극 스크린 틀어놓은 거겠지ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_shadow",
+   "kind": "chat",
+   "text": "교주는 껍데기고 본체는 저 그림자 속 괴물인가 봐",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_floor_tentacles",
+   "kind": "chat",
+   "text": "바닥 봐봐 검은 그림자가 스멀스멀 기어온다!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_floor_tentacles",
+   "kind": "chat",
+   "text": "촉수 같은 게 의자 밑으로 파고들고 있어ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_floor_tentacles",
+   "kind": "question",
+   "text": "방장 발밑에도 저 검은 거 닿은 거 아니야??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_floor_tentacles",
+   "kind": "reply",
+   "text": "바로 앞줄 의자 다리까지 넘어왔어 다리 들어!!",
+   "amount": 0,
+   "reply_to": "방장 발밑에도 저 검은 거 닿은 거 아니야??"
+  },
+  {
+   "situation": "framing_floor_tentacles",
+   "kind": "donation",
+   "text": "바닥에 발 떼!! 잡히면 못 빠져나갈 것 같아ㅠㅠ",
+   "amount": 5000,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_floor_tentacles",
+   "kind": "hater",
+   "text": "바닥에 검은 천 끄는 스태프 있겠지 에휴ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_floor_tentacles",
+   "kind": "chat",
+   "text": "안대 쓴 신도들은 발목 감기는데도 가만히 있네;;",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_kneeling_tentacle",
+   "kind": "chat",
+   "text": "헐 천장에서 내려온 촉수가 신도 머리 감쌌어ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_kneeling_tentacle",
+   "kind": "question",
+   "text": "무릎 꿇은 사람 지금 머리카락 먹히고 있는 거임?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_kneeling_tentacle",
+   "kind": "reply",
+   "text": "먹는 게 아니라 하얀 천 위로 뇌를 빨아들이는 듯;;",
+   "amount": 0,
+   "reply_to": "무릎 꿇은 사람 지금 머리카락 먹히고 있는 거임?"
+  },
+  {
+   "situation": "framing_kneeling_tentacle",
+   "kind": "chat",
+   "text": "감싸인 신도 몸 부르르 떨면서 좋아하네 미쳤다ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_kneeling_tentacle",
+   "kind": "donation",
+   "text": "구해주러 가지 마라 옆에 가면 방장도 감긴다!!",
+   "amount": 10000,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_kneeling_tentacle",
+   "kind": "hater",
+   "text": "저 정도면 특수분장 팀 데려와서 찍는 영화네ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_kneeling_tentacle",
+   "kind": "chat",
+   "text": "사람 머리를 고치처럼 칭칭 감아 올리는 거 토 나와",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_entity",
+   "kind": "chat",
+   "text": "천장 전체가 그냥 거대한 눈알 하나였어ㄷㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_entity",
+   "kind": "chat",
+   "text": "지름이 몇 미터야 홀 뚜껑이 통째로 괴물이네;;",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_entity",
+   "kind": "question",
+   "text": "저게 그 교주가 말하던 겹눈의 진짜 모습인 거지?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_entity",
+   "kind": "reply",
+   "text": "ㅇㅇ 그래서 맨눈으로 보지 말고 천 덮으라고 한 듯!",
+   "amount": 0,
+   "reply_to": "저게 그 교주가 말하던 겹눈의 진짜 모습인 거지?"
+  },
+  {
+   "situation": "framing_entity",
+   "kind": "donation",
+   "text": "인간이 이성 유지하고 볼 수 있는 크기가 아니다 도망쳐!",
+   "amount": 50000,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_entity",
+   "kind": "hater",
+   "text": "와 AR 필터 퀄리티 보소 대기업 자본 들어갔나ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "framing_entity",
+   "kind": "chat",
+   "text": "거대 눈꺼풀 벌어질 때 점액 떨어지는 거 진짜 지린다ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "entity_stare",
+   "kind": "chat",
+   "text": "미친 괴물 눈알이 렌즈 코앞까지 내려왔어!!",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "entity_stare",
+   "kind": "chat",
+   "text": "폰으로 몰래 찍는 거 들켰다 정면으로 쳐다봄ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "entity_stare",
+   "kind": "question",
+   "text": "저거 카메라 너머로 우리까지 보고 있는 거 아님??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "entity_stare",
+   "kind": "reply",
+   "text": "하지 마 진짜 화면 속 눈동자랑 나랑 눈 마주쳤어ㅠㅠ",
+   "amount": 0,
+   "reply_to": "저거 카메라 너머로 우리까지 보고 있는 거 아님??"
+  },
+  {
+   "situation": "entity_stare",
+   "kind": "donation",
+   "text": "폰 당장 내려!! 유리 눈으로 훔쳐본 거 걸렸잖아!!",
+   "amount": 30000,
+   "reply_to": ""
+  },
+  {
+   "situation": "entity_stare",
+   "kind": "chat",
+   "text": "숨소리도 내지 마 코앞에서 동공이 수축하고 있어;;",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "entity_stare",
+   "kind": "hater",
+   "text": "렌즈에 대고 눈알 모형 들이미네 깜짝 놀랐잖아ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "eye_vs_phone",
+   "kind": "chat",
+   "text": "잠깐만 방장 맨눈엔 그냥 황금빛 기둥만 보인다고??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "eye_vs_phone",
+   "kind": "question",
+   "text": "우리 화면엔 괴물인데 현장에선 금빛으로 보인다는 거지?",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "eye_vs_phone",
+   "kind": "reply",
+   "text": "ㅇㅇ 사람 뇌는 홀려서 금빛으로 위장되고 렌즈만 진실을 봄!",
+   "amount": 0,
+   "reply_to": "우리 화면엔 괴물인데 현장에선 금빛으로 보인다는 거지?"
+  },
+  {
+   "situation": "eye_vs_phone",
+   "kind": "chat",
+   "text": "그래서 교주가 차가운 유리 눈으로 보지 말라고 한 거구나ㄷㄷ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "eye_vs_phone",
+   "kind": "donation",
+   "text": "절대 맨눈 믿지 마 폰 화면에 찍히는 괴물이 진짜야!!",
+   "amount": 10000,
+   "reply_to": ""
+  },
+  {
+   "situation": "eye_vs_phone",
+   "kind": "chat",
+   "text": "금빛인 줄 알고 황홀해하는 신도들 진짜 불쌍하다ㅠㅠ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "eye_vs_phone",
+   "kind": "hater",
+   "text": "폰 화면에만 괴물 나오는 거면 카메라 앱 필터 맞네ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "fake_doubt",
+   "kind": "hater",
+   "text": "솔직히 실시간 합성 티 너무 나는데 다들 연기하는 거지?ㅋㅋ",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "fake_doubt",
+   "kind": "reply",
+   "text": "야 손 떨릴 때 그림자랑 초점 나가는 게 어떻게 합성이냐;;",
+   "amount": 0,
+   "reply_to": "솔직히 실시간 합성 티 너무 나는데 다들 연기하는 거지?ㅋㅋ"
+  },
+  {
+   "situation": "fake_doubt",
+   "kind": "hater",
+   "text": "요즘 언리얼 엔진으로 실시간 트래킹 다 됨 주작 백퍼임",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "fake_doubt",
+   "kind": "reply",
+   "text": "주작이면 신도들 목 꺾이는 소리랑 방장 과호흡은 뭔데ㄷㄷ",
+   "amount": 0,
+   "reply_to": "요즘 언리얼 엔진으로 실시간 트래킹 다 됨 주작 백퍼임"
+  },
+  {
+   "situation": "fake_doubt",
+   "kind": "question",
+   "text": "근데 진짜 CG 아니면 저 거대 괴물이 말이 되긴 함??",
+   "amount": 0,
+   "reply_to": ""
+  },
+  {
+   "situation": "fake_doubt",
+   "kind": "reply",
+   "text": "말이 안 되니까 더 무서운 거지 지금 생방 무편집이잖아ㅠㅠ",
+   "amount": 0,
+   "reply_to": "근데 진짜 CG 아니면 저 거대 괴물이 말이 되긴 함??"
+  },
+  {
+   "situation": "fake_doubt",
+   "kind": "donation",
+   "text": "주작무새들 무시하고 방장 일단 거기서 살아 나와 제발!",
+   "amount": 5000,
+   "reply_to": ""
   }
  ]
 }
