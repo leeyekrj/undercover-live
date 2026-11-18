@@ -26,10 +26,55 @@ namespace UndercoverLive.EditorTools
             // 에디터 메뉴 빌드에는 적용하지 않아 원본 프로젝트의 빌드 설정을 바꾸지 않는다.
             EditorUserBuildSettings.overrideMaxTextureSize = 1024;
             PlayerSettings.SplashScreen.show = false;
+            // 11-18: GitHub Pages → 초당 약 1MB라 41MB 첫 로딩이 40초+ → 더 줄인다(복사본에서만).
+            ShrinkForWeb();
             bool ok = false;
             try { ok = Build(outPath); }
             catch (Exception e) { Debug.LogException(e); }
             EditorApplication.Exit(ok ? 0 : 1);
+        }
+
+        /// <summary>
+        /// 웹 다운로드 크기 줄이기 (배치 빌드 복사본 전용 — 임포트 설정 .meta를 바꾸므로 원본에서 부르지 않는다).
+        /// Mixamo 인물 텍스처: 최대 512px(노멀맵 256px) + 크런치 압축. 인물 FBX: 메시 압축 높음, 블렌드셰이프 끔.
+        /// 코드: 관리 코드 제거 Medium, IL2CPP 크기 우선.
+        /// </summary>
+        static void ShrinkForWeb()
+        {
+            const string mixamo = "Assets/_Game/Mixamo";
+            int tex = 0, mdl = 0;
+            AssetDatabase.StartAssetEditing();
+            try
+            {
+                foreach (var guid in AssetDatabase.FindAssets("t:Texture2D", new[] { mixamo }))
+                {
+                    var path = AssetDatabase.GUIDToAssetPath(guid);
+                    if (!(AssetImporter.GetAtPath(path) is TextureImporter ti)) continue;
+                    bool normal = ti.textureType == TextureImporterType.NormalMap || path.ToLowerInvariant().Contains("normal");
+                    ti.maxTextureSize = normal ? 256 : 512;
+                    ti.crunchedCompression = true;
+                    ti.compressionQuality = 50;
+                    ti.mipmapEnabled = true;
+                    ti.SaveAndReimport();
+                    tex++;
+                }
+                foreach (var guid in AssetDatabase.FindAssets("t:Model", new[] { mixamo }))
+                {
+                    var path = AssetDatabase.GUIDToAssetPath(guid);
+                    if (!(AssetImporter.GetAtPath(path) is ModelImporter mi)) continue;
+                    mi.meshCompression = ModelImporterMeshCompression.High;
+                    mi.importBlendShapes = false;
+                    mi.isReadable = false;
+                    mi.SaveAndReimport();
+                    mdl++;
+                }
+            }
+            finally { AssetDatabase.StopAssetEditing(); }
+            var wg = UnityEditor.Build.NamedBuildTarget.WebGL;
+            PlayerSettings.SetManagedStrippingLevel(wg, ManagedStrippingLevel.Medium);
+            PlayerSettings.stripEngineCode = true;
+            PlayerSettings.SetIl2CppCodeGeneration(wg, Il2CppCodeGeneration.OptimizeSize);
+            Debug.Log($"[WebBuild] 웹 용량 줄이기: 텍스처 {tex}개, 모델 {mdl}개, 코드 제거 Medium");
         }
 
         public static bool Build(string outPath)
